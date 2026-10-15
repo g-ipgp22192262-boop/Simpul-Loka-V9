@@ -4,7 +4,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,he
 const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto('http://127.0.0.1:4173');
 await page.locator('#nickname').fill('Aina');await page.locator('#kelas').fill('3 Bestari');await page.getByRole('button',{name:'Mula Pengembaraan'}).click();
-await page.getByRole('heading',{name:'Apakah Simpulan Bahasa?'}).waitFor();
+await page.getByRole('heading',{name:'Perpustakaan Ajaib'}).waitFor();
 for(const dest of ['map','wheel','passport','reflection','recovery','reinforcement','teacher','home']) await page.evaluate(p=>navTo(p),dest);
 await page.evaluate(()=>navTo('rush'));assert.equal(await page.evaluate(()=>page),'home');
 await page.getByRole('button',{name:'Mod Inklusif'}).click();

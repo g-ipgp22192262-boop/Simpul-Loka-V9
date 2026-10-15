@@ -18,7 +18,7 @@ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)
 assert.equal(await page.locator('.adventure-ticket').evaluate(e=>getComputedStyle(e).transform),'none');
 await page.locator('#focus').uncheck();await page.locator('#fontSize').selectOption('normal');await page.locator('#wide').uncheck();await page.getByRole('button',{name:'Mod Inklusif'}).click();
 await page.locator('#nickname').fill('Aina');await page.locator('#kelas').fill('3 Bestari');await page.locator('#kelas').press('Enter');
-await page.getByRole('heading',{name:'Apakah Simpulan Bahasa?'}).waitFor();assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('home-page')),false);
+await page.getByRole('heading',{name:'Perpustakaan Ajaib'}).waitFor();assert.equal(await page.locator('body').evaluate(e=>e.classList.contains('home-page')),false);
 await page.evaluate(()=>navTo('home'));await page.getByRole('button',{name:'Teruskan Pengembaraan'}).waitFor();
 await page.reload();await page.getByRole('heading',{name:'Aina',exact:true}).waitFor();
 assert.deepEqual(errors,[]);console.log('PASS home: image load/aspect ratio; real menu, keyboard registration, returning ticket, 1440/1024/768/390/320px, focus/very large text/wide spacing, no overflow or page errors.');await browser.close();
