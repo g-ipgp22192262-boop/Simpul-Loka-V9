@@ -35,3 +35,73 @@ body{background:linear-gradient(160deg,#b9e9ff 0%,#ffe3f0 42%,#fff2ba 100%)}
 @keyframes v9fall{to{transform:translateY(110vh) rotate(640deg);opacity:0}}
 @media(max-width:700px){.v9-split{grid-template-columns:1fr}.v9-choices{grid-template-columns:1fr}#rushCanvas{aspect-ratio:4/3}}
 .focus .v9-band{background:#fff}.reduce .v9-confetti{display:none}
+
+/* Home only: full park artwork, real HTML controls and a dimensional ticket. */
+.home-menu-toggle{display:none}
+body.home-page{background:#132e49;color:#26374d}
+.home-page .header{position:absolute;inset:0 0 auto;background:transparent;box-shadow:none;color:#173654;z-index:25}
+.home-page .headinner{max-width:none;padding:18px 3%;gap:10px}
+.home-page .logo{font-size:0;margin-right:auto}.home-page .logo small{display:none}
+.home-page .logo:after{content:'SL / V9.0';font-size:13px;letter-spacing:.12em;font-weight:900;color:#183959;background:#fffcf0e8;padding:10px 15px;border-radius:30px;border:1px solid white}
+.home-page .home-menu-toggle,.home-page .access{display:block;background:#fff9ec!important;color:#243a56!important;border:2px solid #fff;box-shadow:0 4px 0 #9a6a3e45;padding:9px 17px;border-radius:30px;font-size:13px}
+.home-page .nav{display:none;order:4;width:100%;padding:14px;border-radius:20px;background:#fffaf4;box-shadow:0 8px 24px #18354a40;justify-content:center}
+.home-page.home-nav-open .nav{display:flex}.home-page .nav button{background:#f0e8fc;color:#3b2a62;border-color:#d6c1ec;min-height:44px;font-size:14px}
+.home-page #accessPanel{position:relative;max-width:1000px;margin:auto;padding-top:0}.home-page .settings{background:#fff9ed;box-shadow:0 10px 30px #172e5a55;color:#233e50;max-height:70vh;overflow:auto}
+.home-page .shell{max-width:none;margin:0;padding:0}.home-page .footer{background:#132e49;color:#d9e4ed;padding:15px}
+.park-home{position:relative;isolation:isolate;overflow:hidden;padding:84px 3% 0;background:linear-gradient(#77b7e8 0%,#d5e7cf 55%,#527788 82%,#29465f 100%);min-height:100vh}
+.park-background{position:absolute;z-index:-2;inset:0 0 auto;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;pointer-events:none}
+.park-home:after{content:'';position:absolute;z-index:-1;inset:auto 0 0;height:27%;background:linear-gradient(transparent,#29465f 85%);pointer-events:none}
+.park-identity{text-align:center;position:relative;width:fit-content;margin:0 auto;text-shadow:0 2px 4px #fff7d1}
+.park-kicker{display:inline-block;color:#253f64;background:#fff9e8ec;border:1px solid #fff;padding:5px 17px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:.2em}
+.park-identity h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(52px,6.4vw,108px);line-height:1.05;letter-spacing:-.065em;margin:5px 0 7px;color:#fff2c1;-webkit-text-stroke:1px #884b31;text-shadow:0 3px 0 #a1542f,0 6px 0 #69422f,0 10px 16px #203a6770;font-weight:900}
+.park-identity h1 span{color:#ffdd70}.park-identity h1 sup{font-family:Verdana,sans-serif;font-size:10px;letter-spacing:0;vertical-align:top;display:inline-block;margin:20px 0 0 10px;-webkit-text-stroke:0;color:#fff;background:#634098;padding:6px 8px;border:1px solid #dabfff;border-radius:9px;text-shadow:none}
+.park-identity>p{font-size:15px;margin:0;color:#233e58;font-weight:600;background:#fff9e9e8;border-radius:30px;padding:5px 18px;box-shadow:0 3px 12px #fff6}
+.park-adventure{display:grid;grid-template-columns:minmax(200px,1fr) minmax(340px,400px) minmax(240px,310px);max-width:1240px;gap:clamp(20px,4vw,65px);margin:clamp(85px,12vw,215px) auto 30px;align-items:end}
+.park-guides{position:relative;text-align:center;align-self:end;padding-bottom:12px;filter:drop-shadow(0 12px 16px #172c453b)}
+.guide-message{position:relative;z-index:1;max-width:255px;margin:auto;background:#fff9eb;border:3px solid #e7c27f;border-radius:25px 25px 25px 5px;padding:15px;color:#34455c;box-shadow:0 5px 0 #bc8133;font-size:14px;transform:rotate(-3deg)}
+.guide-message strong{font-family:Georgia,serif;font-size:24px;color:#61438b}.guide-message p{margin:5px 0;line-height:1.5}
+.guide-characters{width:100%;max-width:330px;height:330px;object-fit:contain;object-position:bottom;display:block;margin:-5px auto -10px}
+.guide-caption{display:inline-block;background:#233952;color:#fff3cf;font-size:11px;border:1px solid #a5b5c5;border-radius:20px;padding:5px 15px}
+.adventure-ticket{position:relative;border:3px solid #fff3c7;border-radius:19px;background:linear-gradient(115deg,#fffbed,#ffeed2);padding:20px 24px 14px;box-shadow:0 8px 0 #b87534,0 11px 0 #744627,0 20px 30px #15294866;align-self:end;transform:rotate(-1deg)}
+.ticket-topline{display:flex;justify-content:space-between;gap:10px;font-size:8px;letter-spacing:.13em;font-weight:800;color:#71523d;border-bottom:1px solid #cfb18e;padding-bottom:10px}
+.adventure-ticket h2{font-family:Georgia,serif;font-size:28px;line-height:1.2;text-align:center;color:#4c315d;margin:16px 0 5px}.ticket-intro{text-align:center;font-size:12px;margin:0 0 18px;color:#795840}
+.ticket-form label{font-size:12px;color:#4e3d3c;display:block}.ticket-form .field{padding:10px 12px;border:1px solid #cba77d;border-radius:9px;background:#fffef8;font-size:14px;min-height:44px;margin:5px 0 12px;box-shadow:inset 0 2px 3px #7744240c}
+.ticket-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ticket-fields>div{min-width:0}.ticket-form .field::placeholder{color:#837467}
+.park-start{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;background:linear-gradient(#a177da,#7742b2 55%,#633196);border:2px solid #e0b7ff;border-radius:13px;box-shadow:0 5px 0 #412461,0 7px 0 #dfa954;color:white;text-shadow:0 2px #4b266e;padding:14px 9px;font-size:17px;transition:transform .15s}
+.park-start:hover{transform:translateY(-2px);filter:brightness(1.08)}.park-start:active{transform:translateY(3px)}.park-start span{font-size:24px;line-height:1}
+.ticket-privacy{font-size:10px;text-align:center;color:#71533e;margin:15px 0}.ticket-stub{border-top:2px dashed #ceb08c;display:flex;gap:14px;align-items:center;margin:16px -24px 0;padding:14px 20px 4px;position:relative}.ticket-stub:before,.ticket-stub:after{content:'';position:absolute;top:-10px;width:17px;height:17px;background:#294656;border-radius:50%}.ticket-stub:before{left:-10px}.ticket-stub:after{right:-10px}
+.ticket-barcode{height:30px;width:65px;flex-shrink:0;background:repeating-linear-gradient(90deg,#5f4334 0 2px,transparent 2px 5px,#5f4334 5px 6px,transparent 6px 9px)}.ticket-stub>span:last-child{font-size:8px;letter-spacing:.1em;color:#75563d}.ticket-stub strong{font-size:10px;letter-spacing:0;color:#513d36}
+.ticket-storage{font-size:9px;text-align:center;color:#735645;margin:8px 0 0}.ticket-welcome{text-align:center}.ticket-welcome>span{font-size:10px;letter-spacing:.16em;color:#765342}.ticket-welcome h3{font-family:Georgia,serif;font-size:32px;color:#674197;margin:0}.ticket-welcome p{font-size:13px;margin:5px 0 16px}.ticket-stamps{display:flex;justify-content:center;gap:7px}.ticket-stamps span{border:1px dashed #bd9360;border-radius:50%;width:32px;height:32px;font-size:12px;display:grid;place-items:center;color:#88623d}.ticket-stamps .collected{background:#d7e8cb;border-color:#4a7540;color:#315d29}
+.loka-board{position:relative;background:linear-gradient(110deg,#fffaf0,#f8e9d5);border:5px solid #bb8143;outline:2px solid #ffe2aa;border-radius:17px;padding:22px 17px 16px;box-shadow:0 8px 0 #70482b,0 18px 25px #1b304b66;transform:rotate(1.5deg);margin-bottom:12px}
+.board-pin{position:absolute;width:14px;height:14px;background:radial-gradient(circle at 35% 30%,#ffeb9e,#b7792d);border:2px solid #a47235;border-radius:50%;top:6px;left:calc(50% - 7px)}.board-kicker{font-size:8px;letter-spacing:.16em;color:#795737;font-weight:800}.loka-board h2{font-family:Georgia,serif;font-size:25px;line-height:1.2;color:#58406d;margin:7px 0}.loka-board>p{font-size:11px;color:#745c49;margin:0 0 12px}
+.park-loka-list{list-style:none;padding:0;margin:0;display:grid;gap:5px}.park-loka-list button{display:flex;align-items:center;gap:10px;width:100%;background:#fffdf6;color:#3d4057;border:1px solid #e0c49e;border-radius:9px;padding:6px 9px;min-height:39px;text-align:left;font-size:12px;box-shadow:0 2px 0 #dfc6a5}.park-loka-list button>span:last-child{margin-left:auto;color:#806194}.loka-number{display:grid;place-items:center;background:#edddf6;border-radius:6px;min-width:26px;height:26px;color:#694487;font-size:10px;font-weight:800}
+.wheel-asset-note{border:1px dashed #b18d64;border-radius:9px;padding:9px;margin-top:12px;color:#735b45;background:#f3e6d1}.wheel-asset-note strong{display:block;font-size:10px}.wheel-asset-note span{display:block;font-size:9px;line-height:1.5;margin-top:3px}.park-map-link{display:flex;justify-content:space-between;width:100%;background:transparent;color:#68458c;font-size:11px;padding:12px 0 0;min-height:40px}
+.park-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;max-width:1240px;margin:45px auto 0;padding:18px 0;border-top:1px solid #ffffff35;color:#fff1d6;font-size:11px}.park-bottom>span:first-child{font-size:9px;letter-spacing:.14em}.park-bottom button{background:#ffffff15;border:1px solid #ffffff50;color:#fff3df;font-size:11px;border-radius:25px;padding:7px 15px}
+.park-home :is(button,input,select):focus-visible,.home-page .header button:focus-visible{outline:3px solid #102f73;outline-offset:4px;box-shadow:0 0 0 7px #fff5bd}
+.home-page.focus .park-identity{text-shadow:none}.home-page.focus .park-background{opacity:.3}.home-page.focus .park-home{background:#d5e3e1}.home-page.focus .park-home:after{background:linear-gradient(transparent,#294656)}
+.home-page:is(.focus,.reduce) :is(.adventure-ticket,.loka-board,.guide-message){transform:none}.home-page.contrast :is(.adventure-ticket,.loka-board,.guide-message){background:#fff;color:#162f45;border-color:#243e58}.home-page.contrast .park-identity>p{background:#fff;color:#162f45}
+.home-page:is(.bigtext,.extrabig) .ticket-form label,.home-page:is(.bigtext,.extrabig) .ticket-form .field,.home-page:is(.bigtext,.extrabig) .park-loka-list button{font-size:1em}.home-page:is(.bigtext,.extrabig) .park-adventure{grid-template-columns:minmax(140px,1fr) minmax(340px,450px) minmax(250px,340px);gap:20px}.home-page.extrabig .ticket-fields{grid-template-columns:1fr}
+@media(min-width:1700px){.park-adventure{margin-top:17vw}.park-guides .guide-characters{height:390px}}
+@media(max-width:1000px){.park-home{padding:85px 24px 0}.park-identity h1{font-size:76px}.park-adventure{grid-template-columns:1fr 1fr;max-width:750px;gap:25px;margin-top:130px}.park-guides{grid-column:1/-1;grid-row:2;display:flex;align-items:center;justify-content:center;gap:10px}.guide-characters{height:220px;width:200px;margin:0}.guide-message{margin:0;max-width:230px}.guide-caption{display:none}.adventure-ticket{align-self:start}.loka-board{align-self:start}.home-page:is(.bigtext,.extrabig) .park-adventure{grid-template-columns:1fr 1fr}.park-bottom{margin-top:15px}}
+@media(max-width:600px){.home-page .headinner{padding:12px;gap:7px}.home-page .logo:after{font-size:9px;padding:10px}.home-page .home-menu-toggle,.home-page .access{font-size:10px;padding:8px 10px;min-height:40px}.park-home{padding:74px 18px 0}.park-kicker{font-size:7px;letter-spacing:.13em;padding:4px 12px}.park-identity h1{font-size:58px;margin-top:7px}.park-identity h1 sup{font-size:7px;margin:10px 0 0 7px;padding:5px}.park-identity>p{font-size:10px;padding:5px 10px}.park-adventure{display:flex;flex-direction:column;gap:30px;margin:90px auto 0;max-width:400px;align-items:stretch}.adventure-ticket{width:100%;padding:20px;transform:none}.ticket-stub{margin-left:-20px;margin-right:-20px}.park-guides{order:2;padding:0;align-self:stretch}.guide-message{font-size:11px;padding:12px;max-width:180px}.guide-message strong{font-size:20px}.guide-characters{height:200px;width:155px}.loka-board{order:3;align-self:stretch;transform:none;margin:0 5px}.park-loka-list{grid-template-columns:1fr 1fr;gap:9px}.park-loka-list button{font-size:11px;gap:6px;height:100%;min-height:54px}.loka-number{min-width:22px;width:22px;font-size:9px}.park-loka-list button>span:last-child{display:none}.park-bottom{flex-wrap:wrap;justify-content:center;margin-top:30px;text-align:center}.park-bottom>span:nth-child(2){display:none}.park-background{min-width:0}.home-page:is(.bigtext,.extrabig) .ticket-fields{grid-template-columns:1fr}.home-page.extrabig .park-loka-list{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.park-start{transition:none}.park-start:hover{transform:none}}
+.park-background{mask-image:linear-gradient(#000 0 86%,transparent 100%)}
+@media(max-width:600px){.park-background{mask-image:none}}
+.home-page:is(.bigtext,.extrabig) :is(.ticket-intro,.ticket-privacy,.ticket-storage,.ticket-welcome p,.guide-message p,.loka-board>p,.wheel-asset-note strong,.wheel-asset-note span,.park-map-link){font-size:.85em}
+.home-page:is(.bigtext,.extrabig) .park-start{font-size:1em}
+.wheel-asset-note strong{font-size:11px}.wheel-asset-note span{font-size:10px}
+
+/* Approved home: a softer foreground and readable Year 3 controls. */
+.park-guides:before{content:'';position:absolute;z-index:-1;inset:25% -12% 0;background:radial-gradient(ellipse at 50% 65%,#fff1c94d,transparent 70%);pointer-events:none}
+.ticket-topline,.board-kicker{font-size:11px;letter-spacing:.08em}
+.ticket-intro,.ticket-form label,.ticket-form .field,.loka-board>p,.park-loka-list button,.park-map-link{font-size:16px}
+.ticket-form .field::placeholder{color:#6e6054;opacity:1}
+.ticket-privacy,.ticket-storage,.ticket-stub>span:last-child,.ticket-stub strong,.wheel-asset-note strong,.wheel-asset-note span,.guide-caption{font-size:13px;letter-spacing:0;line-height:1.6}
+.ticket-intro,.ticket-storage,.ticket-privacy,.loka-board>p,.wheel-asset-note{color:#594330}
+.park-loka-list button{min-height:48px}.loka-number{font-size:12px}
+.park-map-link{min-height:48px}.park-start{font-size:18px;background:linear-gradient(#8755bd,#7139a8 55%,#633196)}
+.home-page .home-menu-toggle,.home-page .access{font-size:14px}
+.park-bottom,.park-bottom button{font-size:13px}.park-bottom>span:first-child{font-size:11px}
+@media(max-width:600px){.home-page .home-menu-toggle,.home-page .access{font-size:12px;padding:8px 10px;min-height:44px}.guide-message{font-size:14px}.park-loka-list button{font-size:14px;min-height:62px}.park-identity>p{font-size:12px}.park-kicker{font-size:9px}.ticket-topline{font-size:10px}}
+.ticket-welcome>span,.ticket-welcome small{font-size:13px}.ticket-welcome p{font-size:16px}.ticket-stamps span{font-size:14px}
+@media(max-width:360px){.home-page .logo{display:none}}

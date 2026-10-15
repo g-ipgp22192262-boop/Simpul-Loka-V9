@@ -1,11 +1,12 @@
 # SimpulLoka V9.0 — Netlify
 
-Frontend V9.0 diambil daripada `SimpulLoka_V9_Kod_Lengkap.zip`. Arkib asal kekal tanpa perubahan. Tiada fail, deployment Apps Script atau data V7 diubah. Grafik Gerbang asal, enam simpulan bahasa, kandungan cerita, permainan, Mod Inklusif, Studio Cerita, Pasport, Refleksi, Pemulihan, Pengukuhan, Rush dan Konsert dikekalkan. Aset 2.5D belum ditambah.
+Frontend V9.0 diambil daripada `SimpulLoka_V9_Kod_Lengkap.zip`. Arkib asal kekal tanpa perubahan. Tiada fail, deployment Apps Script atau data V7 diubah. Halaman Utama taman tema 2.5D yang diluluskan menjadi asas visual rasmi projek. Latar taman, cikgu/panda, Tiket Pengembaraan dan panel sementara Enam Loka tersedia; aset roda Ferris interaktif berasingan masih menunggu. Enam simpulan bahasa, kandungan cerita, permainan, Mod Inklusif, Studio Cerita, Pasport, Refleksi, Pemulihan, Pengukuhan, Rush dan Konsert dikekalkan.
 
 ## Struktur
 
 - `public/index.html`: halaman utama dan bekas halaman aplikasi.
-- `public/assets/styles.css`: semua gaya asal V9.
+- `public/assets/styles.css`: gaya V9 dengan gaya Halaman Utama 2.5D yang diasingkan melalui `home-page`.
+- `public/assets/images/`: latar taman tema dan ilustrasi cikgu/panda.
 - `public/assets/app.js`: navigasi dan aktiviti asal V9; pembetulan butang audio Rush serta pengendalian sesi.
 - `public/assets/backend.js`: adapter simpanan setempat / sambungan sekolah.
 - `netlify/functions/backend.mjs`: perantara pelayan ke Apps Script; rahsia tidak dihantar ke browser.
