@@ -1,0 +1,21 @@
+SIMPULLOKA V9.0 — PANDUAN PEMASANGAN DAN UJIAN
+
+ASAS: Fail Code.gs dan Index.html V9.0 ini dibina daripada fail asal V8.1 yang ditemui dalam perbualan, dengan penambahan fungsi V9. Jangan gunakan tanpa sandaran.
+
+1. Buka projek Apps Script SEDIA ADA.
+2. Salin dan simpan sandaran penuh Code.gs dan Index.html V8.1 serta buat salinan Google Sheets (File > Make a copy).
+3. Gantikan Code.gs dengan fail Code.gs V9.0. Gantikan Index.html dengan fail Index.html V9.0. Jangan tukar Script Properties atau kata laluan guru.
+4. Jalankan setupSimpulLoka() sekali. Ia mengekalkan tab asal dan menambah tab RushMinda tanpa memadam rekod sedia ada.
+5. Deploy > Manage deployments > Edit > New version > Deploy. Uji menggunakan akses terhad dahulu.
+6. Semak Gerbang, Peta Ilmu, Roda Ferris, keenam-enam Loka, Studio Cerita, Pasport, Refleksi asal, Pemulihan, Pengukuhan, Sudut Cikgu, CSV.
+7. Lengkapkan keenam-enam Loka menggunakan murid ujian untuk membuka SimpulLoka Rush. Uji kawalan kiri/kanan/lompat, tiga gerbang (dua soalan setiap gerbang), petunjuk, cuba lagi, rekod RushMinda dan Konsert.
+8. Rakaman Studio Cerita adalah PILIHAN dan disimpan hanya dalam sesi pelayar; tiada muat naik audio ke Google Sheets. Mikrofon memerlukan izin pelayar dan sambungan HTTPS.
+9. Konsert menggunakan pautan Suno: https://suno.com/s/Mk9omkQDxSYSdnUc. Ia dibuka pada tab baharu, bukan pemain audio terbenam. Periksa kebenaran penggunaan lagu sebelum penerbitan awam.
+
+PERHATIAN
+- V9 ini merupakan draf kod untuk UJIAN, bukan deployment yang sudah diuji pada akaun Google sebenar.
+- Paparan permainan Rush menggunakan Canvas 2D bergaya pseudo-3D dan kawalan asas; bukan klon 3D Minion Rush. Halangan ialah animasi ringan tanpa sistem nyawa.
+- Skor RushMinda adalah latihan pengukuhan dan tidak menetapkan TP PBD secara automatik.
+- SK/SP dan objektif yang dikunci telah dimasukkan ke Sudut Cikgu.
+- Periksa kandungan simpulan bahasa dengan DSKP/buku teks sebelum PdP sebenar.
+- Untuk murid, gunakan nama panggilan, bukan data sensitif.
