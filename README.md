@@ -1,8 +1,8 @@
 # SimpulLoka V9.0 — Netlify
 
-Frontend V9.0 berasaskan arkib `SimpulLoka_V9_Kod_Lengkap.zip` yang dikekalkan. Gerbang 2.5D, Roda Ferris interaktif, Perpustakaan Ajaib dan **Loka 1 V2 tiga misi** telah diluluskan sebagai asas rasmi. Lima Loka lain masih menggunakan aliran asal; mini permainan tiga misi bagi Loka 2–6 belum dibina. Backend PBD dan projek V7 tidak diubah oleh pelepasan Loka 1.
+Frontend V9.0 berasaskan arkib `SimpulLoka_V9_Kod_Lengkap.zip` yang dikekalkan. Gerbang 2.5D, Roda Ferris interaktif, Perpustakaan Ajaib dan **Loka 1 V2 tiga misi dan Upacara Cop Pasport Ajaib** telah diluluskan sebagai asas rasmi. Lima Loka lain masih menggunakan aliran asal; mini permainan tiga misi bagi Loka 2–6 belum dibina. Backend PBD dan projek V7 tidak diubah oleh pelepasan Loka 1.
 
-Rujukan lengkap status, keputusan pembangunan, enam Loka, inklusif, audio, struktur teknikal, data, ujian dan deployment: [SIMPULLOKA_MASTER_HANDOFF.md](SIMPULLOKA_MASTER_HANDOFF.md). Butiran fasa: [FERRIS_PHASE2.md](FERRIS_PHASE2.md), [LIBRARY_PHASE3.md](LIBRARY_PHASE3.md) dan [LOKA1_PHASE4.md](LOKA1_PHASE4.md).
+Rujukan lengkap status, keputusan pembangunan, enam Loka, inklusif, audio, struktur teknikal, data, ujian dan deployment: [SIMPULLOKA_MASTER_HANDOFF.md](SIMPULLOKA_MASTER_HANDOFF.md). Butiran fasa: [FERRIS_PHASE2.md](FERRIS_PHASE2.md), [LIBRARY_PHASE3.md](LIBRARY_PHASE3.md) dan [LOKA1_PHASE4.md](LOKA1_PHASE4.md) dan [LOKA1_PASSPORT.md](LOKA1_PASSPORT.md).
 
 Website yang diberikan pemilik: https://simpulloka.netlify.app/, terhubung kepada branch `work` menurut pemilik. Status Published bagi komit terkini mesti disahkan berasingan.
 

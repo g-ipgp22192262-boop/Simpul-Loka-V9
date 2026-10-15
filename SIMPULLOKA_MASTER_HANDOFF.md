@@ -1,6 +1,6 @@
 # SimpulLoka V9.0 — Master Handoff
 
-Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebenar pada branch `work` termasuk **Loka 1 V2 yang diluluskan**. Ia ialah panduan kesinambungan pembangunan, operasi dan pengujian; kelulusan reka bentuk atau build setempat bukan bukti deployment telah Published.
+Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebenar pada branch `work` termasuk **Loka 1 V2 dan Upacara Cop Pasport Ajaib yang diluluskan**. Ia ialah panduan kesinambungan pembangunan, operasi dan pengujian; kelulusan reka bentuk atau build setempat bukan bukti deployment telah Published.
 
 ## 1. Identiti projek dan sumber rujukan
 
@@ -9,7 +9,7 @@ Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebe
 - Website yang diberikan pemilik: https://simpulloka.netlify.app/.
 - Sumber asal: `SimpulLoka_V9_Kod_Lengkap.zip`, dikekalkan sebagai arkib sejarah.
 - **V7 ialah projek berasingan. Jangan mengubah fail, deployment, domain, Apps Script, ID Sheets atau rekod V7.**
-- Rujukan teknikal mengikut fasa: `FERRIS_PHASE2.md`, `LIBRARY_PHASE3.md`, `LOKA1_PHASE4.md`, `README.md`, `VALIDATION.md`.
+- Rujukan teknikal mengikut fasa: `FERRIS_PHASE2.md`, `LIBRARY_PHASE3.md`, `LOKA1_PHASE4.md`, `LOKA1_PASSPORT.md`, `README.md`, `VALIDATION.md`.
 - Dokumen ini dan kod terkini mengatasi nota pratonton lama yang masih menyebut keadaan sebelum kelulusan.
 
 Jejak utama sebelum pelepasan Loka 1 V2:
@@ -30,7 +30,7 @@ Kod rasmi Loka 1 V2 berada dalam komit pelepasan yang mengandungi dokumen ini. D
 | Fasa 1 — Gerbang/Halaman Utama | Reka bentuk 2.5D diluluskan: latar taman, istana, cikgu/panda, Tiket Pengembaraan HTML, pilihan avatar dan navigasi. Panel sementara Enam Loka di Gerbang dikekalkan. |
 | Fasa 2 — Roda Ferris | Diluluskan dan berfungsi: enam gondola berlapis, avatar tiket ke pelantar, pintu, duduk, putaran dan zum ke Loka. Grafik vektor boleh diperhalus kemudian tanpa menghilangkan mekanisme. |
 | Fasa 3 — Perpustakaan Ajaib | Diluluskan dan berfungsi: Kitab Ilmu Utama, enam buku bergerak dari rak, kulit berengsel, dua halaman, zum, tanda penerokaan, Kunci Ilmu dan pintu Ferris tanpa sekatan 6/6. |
-| Fasa 4 — Loka 1 V2 | **Diluluskan sebagai versi rasmi.** Tiga misi, gerai botol sebenar, empat gambar baharu, susunan, pentas, avatar berartikulasi, rakaman sementara, ganjaran/cop dan ruang pemerhatian guru. |
+| Fasa 4 — Loka 1 V2 | **Diluluskan sebagai versi rasmi.** Tiga misi, gerai botol sebenar, empat gambar baharu, susunan, pentas, avatar berartikulasi, rakaman sementara, Upacara Cop Pasport Ajaib dan ruang pemerhatian guru. |
 | Loka 2–6 | Kandungan dan aliran asal masih berfungsi. Belum ditukar kepada tiga misi/mini permainan fantasi seperti Loka 1. |
 | Pasport, Refleksi, Pemulihan/Pengukuhan | Aliran asal dikekalkan dan diuji regresi. |
 | SimpulLoka Rush dan Konsert | Aliran asal dikekalkan; tiada reka bentuk baharu dalam Fasa 4. |
@@ -86,6 +86,7 @@ public/
     ferris-geometry.js         Koordinat roda, pin gondola, pelantar dan kamera
     ferris.js / ferris.css     Ferris + lifecycle dan preference hook
     library.js / library.css   Buku, animasi, audio guru, penerokaan
+    loka-one-reward.js / .css Upacara cop dan UI skrin penamat sahaja
     loka-one.js / loka-one.css Loka 1 V2, tiga misi dan rakaman sementara
     images/                   Gerbang, ferris-prototype/, library/, loka1/
     fonts/library/            Andika self-hosted WOFF dan lesen OFL
@@ -99,7 +100,7 @@ work/                         Scratch/skrip QA; diabaikan Git
 netlify.toml                  Build, publish, Functions dan header
 ```
 
-Urutan: `backend.js` → `ferris-geometry.js` → `ferris.js` → `library.js` → `loka-one.js` → `app.js`. `lokaHtml()` mendelegasikan hanya indeks 0 kepada `LokaOne.html()`; indeks 1–5 kekal pada aliran asal. `render()` mengurus unmount/mount dan kelas `loka-one-page`, `home-page`, `library-page`, `ferris-page`. `applyPref()` memanggil hook setiap modul.
+Urutan: `backend.js` → `ferris-geometry.js` → `ferris.js` → `library.js` → `loka-one-reward.js` → `loka-one.js` → `app.js`. `lokaHtml()` mendelegasikan hanya indeks 0 kepada `LokaOne.html()`; indeks 1–5 kekal pada aliran asal. `render()` mengurus unmount/mount dan kelas `loka-one-page`, `home-page`, `library-page`, `ferris-page`. `applyPref()` memanggil hook setiap modul.
 
 `LokaMissions` menyediakan nama dan prasyarat tiga misi untuk penggunaan semula. Ini asas kecil, bukan enjin generik siap untuk semua jenis tarikan. Pengembangan Loka 2–6 memerlukan implementasi dan kelulusan tersendiri.
 
@@ -196,6 +197,7 @@ Buka http://localhost:4173. Pada server statik, 404 bagi endpoint Netlify Functi
 Browser tests memerlukan Playwright/Chromium yang dipasang secara berasingan. Jika tidak memasangnya pada projek, tetapkan `PLAYWRIGHT_MODULE` kepada fail modul Playwright dan `CHROMIUM_PATH` kepada executable. Jangan commit `node_modules` atau fail runtime sesi.
 
 ```sh
+npm run test:reward
 npm run test:loka1
 npm run test:library
 npm run test:ferris
@@ -249,3 +251,15 @@ Keutamaan seterusnya selepas pengesahan live:
 5. Perhalus aset Ferris jika diminta sambil mengekalkan koordinat, pintu, tempat duduk, pergerakan avatar dan fallback.
 
 Jangan merombak Gerbang, Perpustakaan, Ferris atau Loka 1 yang diluluskan tanpa arahan. Jangan commit screenshot/debug baharu bersama kod production tanpa skop yang jelas. `HOME_PREVIEW.md` yang belum dijejak ialah nota sejarah Gerbang sebelum kelulusan, bukan kerja Fasa 4 atau dokumen status semasa.
+
+## 14. Pelepasan Upacara Cop Pasport Ajaib yang diluluskan
+
+Skrin penamat sahaja diperbaiki: pasport HTML dua halaman terbuka, cop kayu SVG turun dan menghentak lembut, bunyi cop WebAudio pendek, lambang botol/Dalam Tangan, konfeti/kilauan sekali dan pembantu Loka. Tiada animasi berkelip atau loop. Maklumat tiga misi berada pada halaman kiri; ruang PBD kekal dalam details berasingan.
+
+Modul `loka-one-reward.js`/`loka-one-reward.css` dimuat sebelum `loka-one.js`. Yang berubah pada modul Loka 1 ialah delegasi markup ganjaran, mount/unmount dan preference hook; 29 fungsi misi/rakaman/kemajuan diluluskan dibandingkan dengan Git dan kekal sama. Fail gaya asal Loka 1, Gerbang, Perpustakaan, Ferris dan backend tidak diubah.
+
+Flag `stampCeremonyDone` berada dalam rekod setempat `simpulloka_v9_loka1_<mode>_<studentId>`, ditandakan sebelum animasi bermula supaya kembali/reload/keluar halaman/Langkau tidak mengulangnya. Ia bukan pengganti `finished` atau cop backend dan tidak menambah medan Sheets. Menghapuskan data browser boleh memadam flag animasi setempat, tetapi tidak menghapuskan cop sekolah yang sudah disimpan.
+
+Focus/reduce/OS reduced motion terus memaparkan pasport terbuka dan cop; Senyap tidak memulakan AudioContext. Langkau dan watchdog 4.5 saat menamatkan animasi dengan selamat, termasuk jika API animasi/bunyi gagal. Grafik perayaan aria-hidden, status polite ringkas, fokus dipulihkan ke Kembali ke Roda Ferris apabila butang Langkau disembunyikan. Destinasi kekal boleh digunakan semasa upacara. Butang Loka 2 membuka **aktiviti asal yang sudah wujud**; tiada pembangunan Loka 2 baharu dimulakan.
+
+`npm run test:reward` menguji fasa dan pergerakan sebenar, bunyi sekali/tidak dimainkan dalam Senyap, persistensi dan reload, catatan PBD, Langkau setiap fasa, fokus keyboard, pembatalan, kegagalan animasi/audio, mod inklusif dan responsif. Media semakan 8 PNG + MP4/GIF telah dipush secara berasingan dalam komit `c155d2bb1a6c44b290dc58379e16d240695478ba`. Lihat `LOKA1_PASSPORT.md`; tiada media/debug baharu perlu dimasukkan dalam komit pelepasan kod.

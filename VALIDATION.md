@@ -39,3 +39,13 @@ Belum diuji: deployment Netlify sebenar, akaun Google/Sheets sebenar, login guru
 - Master handoff lengkap: `SIMPULLOKA_MASTER_HANDOFF.md`. Loka 2–6 belum menggunakan mini permainan tiga misi baharu; jangan samakan kelengkapan aliran asal dengan peluasan Fasa 4 ke semua Loka.
 - Media V2 sudah berada di GitHub melalui komit media sahaja `51fa4db5d20ca574e900f51d40e885348b892c68`. Tiada media/debug baharu ditambah dalam komit kod pelepasan; folder media tidak disalin ke `dist/`.
 - Batas: Chromium headless; tiada pengesahan mikrofon/peranti fizikal, Safari/iOS, pembaca skrin manusia, sambungan Sheets/PBD sekolah sebenar. Status Published Netlify mesti disahkan secara remote bagi SHA pelepasan; push dan build setempat bukan bukti Published.
+
+## Upacara Cop Pasport Loka 1 diluluskan — 16 Oktober 2026 (Malaysia)
+
+- `npm run check`, `npm test` (6 ujian Node), `npm run build`: lulus.
+- `npm run test:reward`: lulus; pasport terbuka, cop menghentak, lambang muncul, perayaan sekali sahaja, simpan/pulih, pemerhatian guru, Langkau pada setiap fasa, pemulihan fokus, bunyi/Senyap, Fokus/Reduce/OS reduced motion, kegagalan animasi/audio, pembatalan, papan kekunci/sentuhan dan responsif 320–1440px; 0 pageerror.
+- `npm run test:loka1`, `npm run test:browser`, `npm run test:ferris`, `npm run test:library` dan `node tests/home-browser.mjs`: lulus; 0 pageerror. Tiga misi, rakaman sementara, kemajuan/cop serta aliran Fasa 1–3 kekal berfungsi.
+- Axe-core 4.10.3: desktop dan telefon, tetapan biasa serta Fokus/Reduce/tulisan besar/Andika/kontras; empat audit, 0 pelanggaran dikesan.
+- Perbandingan kod mengesahkan 29 fungsi misi/rakaman/kemajuan sedia ada tidak berubah. Fail Gerbang, Perpustakaan, Ferris, backend dan struktur PBD tidak diubah. Tiada pembangunan Loka 2 atau perubahan projek V7.
+- Media semakan telah diterbitkan berasingan dalam komit `c155d2bb1a6c44b290dc58379e16d240695478ba`; tiada media atau fail debug ditambah dalam pelepasan kod ini.
+- Batas ujian peranti fizikal dan integrasi sekolah sebenar di atas masih terpakai. Build setempat dan push bukan pengesahan Netlify Published.
