@@ -6,10 +6,11 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js",
+    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js && node --check public/assets/loka-one.js",
     "test:browser": "node tests/browser.mjs",
     "test:ferris": "node tests/ferris-browser.mjs",
-    "test:library": "node tests/library-browser.mjs"
+    "test:library": "node tests/library-browser.mjs",
+    "test:loka1": "node tests/loka-one-browser.mjs"
   },
   "engines": {
     "node": ">=22"

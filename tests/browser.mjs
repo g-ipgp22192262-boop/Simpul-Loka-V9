@@ -10,13 +10,18 @@ await page.evaluate(()=>navTo('rush'));assert.equal(await page.evaluate(()=>page
 await page.getByRole('button',{name:'Mod Inklusif'}).click();
 await page.locator('#reduce').check();await page.locator('#fontSize').selectOption('bigtext');
 assert(await page.locator('body').evaluate(e=>e.classList.contains('reduce')&&e.classList.contains('bigtext')));
-for(let i=0;i<6;i++){
+for(let i=1;i<6;i++){
  await page.evaluate(i=>{enterLoka(i);goStage(2)},i);
  for(let j=0;j<4;j++)await page.evaluate(j=>{selectCard(j);putCard(j)},j);
  await page.getByRole('button',{name:'Semak Susunan'}).click();
  await page.evaluate(async()=>{await markSimpul();navTo('story');startTalk();await finishTalk()});
  assert.equal(await page.evaluate(i=>progress[i+1].completed,i),true);
 }
+// Loka 1 follows the new three-mission interaction; the five other Loka retain their flow.
+await page.evaluate(()=>enterLoka(0));await page.locator('[data-answer="0"]').click();await page.locator('#l1NextMission').click();
+for(let i=0;i<4;i++){if(!await page.locator('#l1Throw').isEnabled())await page.locator('#l1Refill').click();await page.locator('#l1Throw').click();if(i<3)await page.waitForFunction(n=>document.querySelectorAll('.l1-collected-strip figure').length===n,i+1);else await page.locator('[data-card]').first().waitFor();}
+for(let i=0;i<4;i++){await page.locator(`[data-card="${i}"]`).click();await page.locator(`[data-slot="${i}"]>button`).click();}
+await page.getByRole('button',{name:'Semak Susunan',exact:true}).click();await page.getByRole('button',{name:'Teruskan ke Pentas Cerita'}).click();await page.locator('#l1Oral').check();await page.locator('#l1Finish').click();await page.waitForFunction(()=>progress[1]?.completed);
 await page.reload();await page.waitForFunction(()=>Object.keys(progress).length===6);
 await page.evaluate(()=>{navTo('reflection');chooseFeeling('gembira')});await page.locator('#learning').fill('Saya belajar enam simpulan bahasa.');await page.getByRole('button',{name:'Simpan Refleksi'}).click();
 for(const mode of ['recovery','reinforcement'])await page.evaluate(async mode=>{navTo(mode);for(let i=0;i<6;i++)await answerExercise(mode,i%3)},mode);

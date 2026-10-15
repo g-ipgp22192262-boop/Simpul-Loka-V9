@@ -1,15 +1,19 @@
 # SimpulLoka V9.0 — Netlify
 
-Frontend V9.0 diambil daripada `SimpulLoka_V9_Kod_Lengkap.zip`. Arkib asal kekal tanpa perubahan. Tiada fail, deployment Apps Script atau data V7 diubah. Halaman Utama taman tema 2.5D yang diluluskan menjadi asas visual rasmi projek. Latar taman, cikgu/panda, Tiket Pengembaraan dan panel sementara Enam Loka tersedia; aset roda Ferris interaktif berasingan masih menunggu. Enam simpulan bahasa, kandungan cerita, permainan, Mod Inklusif, Studio Cerita, Pasport, Refleksi, Pemulihan, Pengukuhan, Rush dan Konsert dikekalkan.
+Frontend V9.0 berasaskan arkib `SimpulLoka_V9_Kod_Lengkap.zip` yang dikekalkan. Gerbang 2.5D, Roda Ferris interaktif, Perpustakaan Ajaib dan **Loka 1 V2 tiga misi** telah diluluskan sebagai asas rasmi. Lima Loka lain masih menggunakan aliran asal; mini permainan tiga misi bagi Loka 2–6 belum dibina. Backend PBD dan projek V7 tidak diubah oleh pelepasan Loka 1.
 
-Halaman Roda Ferris Fasa 2 kini menggunakan enam gondola berlapis yang bergerak ke pelantar, membawa avatar tiket dan membuka Loka sebenar. Mekanisme serta reka bentuk diluluskan; grafik boleh diperhalus kemudian. Lihat `FERRIS_PHASE2.md` untuk geometri, pilihan inklusif dan ujian. Jalankan `npm run test:ferris` untuk ujian browser khusus.
+Rujukan lengkap status, keputusan pembangunan, enam Loka, inklusif, audio, struktur teknikal, data, ujian dan deployment: [SIMPULLOKA_MASTER_HANDOFF.md](SIMPULLOKA_MASTER_HANDOFF.md). Butiran fasa: [FERRIS_PHASE2.md](FERRIS_PHASE2.md), [LIBRARY_PHASE3.md](LIBRARY_PHASE3.md) dan [LOKA1_PHASE4.md](LOKA1_PHASE4.md).
+
+Website yang diberikan pemilik: https://simpulloka.netlify.app/, terhubung kepada branch `work` menurut pemilik. Status Published bagi komit terkini mesti disahkan berasingan.
 
 ## Struktur
 
 - `public/index.html`: halaman utama dan bekas halaman aplikasi.
 - `public/assets/styles.css`: gaya V9 dengan gaya Halaman Utama 2.5D yang diasingkan melalui `home-page`.
 - `public/assets/images/`: latar taman tema dan ilustrasi cikgu/panda.
-- `public/assets/app.js`: navigasi dan aktiviti asal V9; pembetulan butang audio Rush serta pengendalian sesi.
+- `public/assets/app.js`: navigasi dan aktiviti asal V9 serta lifecycle modul.
+- `public/assets/library.js` / `library.css`: perpustakaan dan buku beranimasi.
+- `public/assets/loka-one.js` / `loka-one.css`: tiga misi Loka 1 V2, botol, susunan, pentas dan rakaman sementara.
 - `public/assets/backend.js`: adapter simpanan setempat / sambungan sekolah.
 - `netlify/functions/backend.mjs`: perantara pelayan ke Apps Script; rahsia tidak dihantar ke browser.
 - `backend/apps-script/Code.gs`: kod backend asal dengan adapter HTTP berasingan.
@@ -33,12 +37,11 @@ Buka http://localhost:4173. Pelayan statik menggunakan mod setempat. Respons 404
 
 Untuk ujian browser pilihan, pasang Playwright dalam persekitaran pembangunan (`npm install --no-save playwright`, kemudian `npx playwright install chromium`), jalankan pelayan di atas dan `npm run test:browser`. `PLAYWRIGHT_MODULE` dan `CHROMIUM_PATH` boleh memilih pemasangan sedia ada. Ujian mendaftar murid ujian, melengkapkan enam Loka, memulihkan sesi, menguji latihan, Rush dan Konsert. Masa menunggu gerbang kedua/ketiga dipendekkan dalam ujian sahaja. Fail browser ini tidak termasuk dalam build frontend.
 
-## Terbitkan sebagai site Netlify baharu
+## Penerbitan Netlify sedia ada
 
-1. Simpan semua perubahan baharu ke repository `g-ipgp22192262-boop/Simpul-Loka-V9` pada branch baharu, semak dan push. Contoh: `git switch -c feat/v9-netlify`, `git add .`, `git commit -m "Prepare SimpulLoka V9 for Netlify"`, `git push -u origin feat/v9-netlify`.
-2. Netlify → **Add new project / Import an existing project** → GitHub → pilih repository V9 dan branch tersebut. Cipta site baharu; jangan ubah site/domain/deployment V7.
-3. Base directory: kosong (root repository). Build command: `npm run check && npm test && npm run build`. Publish directory: `dist`. Functions directory: `netlify/functions`. `netlify.toml` menetapkannya secara automatik.
-4. Deploy. Buka URL HTTPS yang diberikan dan cuba tiket, Loka dan Mod Inklusif. Jangan gunakan muat naik `dist` sahaja jika memerlukan backend; import Git menjalankan Netlify Functions juga.
+Site V9 sedia ada menggunakan repository ini dan branch `work`; jangan cipta site pengganti atau ubah site V7. Selepas semakan dan kelulusan, commit hanya fail produk/ujian/dokumentasi berkaitan dan push ke `work`. Import Git menjalankan Netlify Functions; muat naik `dist` sahaja tidak menyediakan backend.
+
+Base directory: root repository. Build command: `npm run check && npm test && npm run build`. Publish directory: `dist`. Functions directory: `netlify/functions`. Node 22. `netlify.toml` ialah konfigurasi rujukan. Semak Netlify → Deploys bagi SHA yang dipush; hanya dakwa Published apabila status remote disahkan. Media review berada di luar `public/` dan menggunakan komit berasingan dengan `[skip netlify]`.
 
 Tanpa tetapan backend, mod setempat membolehkan pembelajaran penuh, kemajuan enam Loka, refleksi dan Rush. Rekod hanya pada browser/origin yang sama; memadam data browser memadam kemajuan. Ia bukan rekod rasmi sekolah. Sudut Cikgu masih memaparkan panduan/kurikulum; dashboard PBD, pentaksiran dan CSV memerlukan backend sekolah serta kata laluan sah. Tiada kata laluan guru palsu dalam frontend.
 
