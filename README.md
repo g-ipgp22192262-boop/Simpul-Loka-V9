@@ -2,6 +2,8 @@
 
 Frontend V9.0 diambil daripada `SimpulLoka_V9_Kod_Lengkap.zip`. Arkib asal kekal tanpa perubahan. Tiada fail, deployment Apps Script atau data V7 diubah. Halaman Utama taman tema 2.5D yang diluluskan menjadi asas visual rasmi projek. Latar taman, cikgu/panda, Tiket Pengembaraan dan panel sementara Enam Loka tersedia; aset roda Ferris interaktif berasingan masih menunggu. Enam simpulan bahasa, kandungan cerita, permainan, Mod Inklusif, Studio Cerita, Pasport, Refleksi, Pemulihan, Pengukuhan, Rush dan Konsert dikekalkan.
 
+Halaman Roda Ferris Fasa 2 kini menggunakan enam gondola berlapis yang bergerak ke pelantar, membawa avatar tiket dan membuka Loka sebenar. Mekanisme serta reka bentuk diluluskan; grafik boleh diperhalus kemudian. Lihat `FERRIS_PHASE2.md` untuk geometri, pilihan inklusif dan ujian. Jalankan `npm run test:ferris` untuk ujian browser khusus.
+
 ## Struktur
 
 - `public/index.html`: halaman utama dan bekas halaman aplikasi.

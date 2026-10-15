@@ -18,3 +18,12 @@ Belum diuji: deployment Netlify sebenar, akaun Google/Sheets sebenar, login guru
 - Regresi enam Loka, Refleksi, Pemulihan, Pengukuhan, Rush dan Konsert: lulus, 0 ralat JavaScript.
 - Backend Apps Script, adapter backend dan struktur data PBD tidak diubah. Integrasi Google sebenar masih belum diuji semula dengan akaun sekolah.
 - Build hanya menyalin `public/` ke `dist/`; tiada `preview-screenshots/`, `work/`, fail ujian atau dokumen pratonton dalam production.
+
+## Fasa 2 Roda Ferris diluluskan — 16 Oktober 2026 (Malaysia)
+
+- Sintaks, ujian backend/geometri dan build: lulus.
+- Chromium desktop/telefon: enam perjalanan normal dengan empat haiwan, sembilan fasa, cop/ulang Loka, keyboard/touch, Langkau/Escape, Fokus/Reduce/OS reduced motion/Senyap, klik berulang, pembatalan halaman, watchdog dan kegagalan aset: lulus; 0 pageerror.
+- Regresi Halaman Utama, enam Loka, Pasport/Refleksi/latihan, Rush dan Konsert: lulus; 0 pageerror.
+- Avatar dibesarkan 20% sambil mengekalkan titik kaki dan tempat duduk. Pintu ditutup selepas avatar duduk sebelum roda berputar. Cahaya zum lembut dimatikan dalam Fokus/Reduce.
+- Fail/aset Halaman Utama, logik masuk Loka, Rush dan backend dibandingkan dengan Git dan disahkan tidak berubah. Tiada screenshot/video ujian atau debug dalam build production.
+- Deployment/URL Netlify memerlukan pengesahan berasingan; kelulusan ujian setempat bukan bukti penerbitan.
