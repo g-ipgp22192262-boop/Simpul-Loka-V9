@@ -6,12 +6,13 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js && node --check public/assets/loka-one.js && node --check public/assets/loka-one-reward.js",
+    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js && node --check public/assets/loka-one.js && node --check public/assets/loka-one-reward.js && node --check public/assets/loka-story.js && node --check public/assets/loka-two-art.js && node --check public/assets/loka-two.js",
     "test:browser": "node tests/browser.mjs",
     "test:ferris": "node tests/ferris-browser.mjs",
     "test:library": "node tests/library-browser.mjs",
     "test:loka1": "node tests/loka-one-browser.mjs",
-    "test:reward": "node tests/loka-one-reward-browser.mjs"
+    "test:reward": "node tests/loka-one-reward-browser.mjs",
+    "test:loka2": "node tests/loka-two-browser.mjs"
   },
   "engines": {
     "node": ">=22"

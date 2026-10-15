@@ -1,6 +1,6 @@
 # SimpulLoka V9.0 — Master Handoff
 
-Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebenar pada branch `work` termasuk **Loka 1 V2 dan Upacara Cop Pasport Ajaib yang diluluskan**. Ia ialah panduan kesinambungan pembangunan, operasi dan pengujian; kelulusan reka bentuk atau build setempat bukan bukti deployment telah Published.
+Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebenar pada branch `work` termasuk **Loka 1 V2, Upacara Cop Pasport Ajaib dan Loka 2 yang diluluskan**. Ia ialah panduan kesinambungan pembangunan, operasi dan pengujian; kelulusan reka bentuk atau build setempat bukan bukti deployment telah Published.
 
 ## 1. Identiti projek dan sumber rujukan
 
@@ -9,7 +9,7 @@ Tarikh semakan: **16 Oktober 2026 (Malaysia)**. Dokumen ini menerangkan kod sebe
 - Website yang diberikan pemilik: https://simpulloka.netlify.app/.
 - Sumber asal: `SimpulLoka_V9_Kod_Lengkap.zip`, dikekalkan sebagai arkib sejarah.
 - **V7 ialah projek berasingan. Jangan mengubah fail, deployment, domain, Apps Script, ID Sheets atau rekod V7.**
-- Rujukan teknikal mengikut fasa: `FERRIS_PHASE2.md`, `LIBRARY_PHASE3.md`, `LOKA1_PHASE4.md`, `LOKA1_PASSPORT.md`, `README.md`, `VALIDATION.md`.
+- Rujukan teknikal mengikut fasa: `FERRIS_PHASE2.md`, `LIBRARY_PHASE3.md`, `LOKA1_PHASE4.md`, `LOKA1_PASSPORT.md`, `LOKA2_PHASE5.md`, `README.md`, `VALIDATION.md`.
 - Dokumen ini dan kod terkini mengatasi nota pratonton lama yang masih menyebut keadaan sebelum kelulusan.
 
 Jejak utama sebelum pelepasan Loka 1 V2:
@@ -31,7 +31,8 @@ Kod rasmi Loka 1 V2 berada dalam komit pelepasan yang mengandungi dokumen ini. D
 | Fasa 2 — Roda Ferris | Diluluskan dan berfungsi: enam gondola berlapis, avatar tiket ke pelantar, pintu, duduk, putaran dan zum ke Loka. Grafik vektor boleh diperhalus kemudian tanpa menghilangkan mekanisme. |
 | Fasa 3 — Perpustakaan Ajaib | Diluluskan dan berfungsi: Kitab Ilmu Utama, enam buku bergerak dari rak, kulit berengsel, dua halaman, zum, tanda penerokaan, Kunci Ilmu dan pintu Ferris tanpa sekatan 6/6. |
 | Fasa 4 — Loka 1 V2 | **Diluluskan sebagai versi rasmi.** Tiga misi, gerai botol sebenar, empat gambar baharu, susunan, pentas, avatar berartikulasi, rakaman sementara, Upacara Cop Pasport Ajaib dan ruang pemerhatian guru. |
-| Loka 2–6 | Kandungan dan aliran asal masih berfungsi. Belum ditukar kepada tiga misi/mini permainan fantasi seperti Loka 1. |
+| Fasa 5 — Loka 2 | Diluluskan: kedai interaktif, tiga pilihan bantuan/alasan, empat langkah pembungkusan, cerita berubah mengikut pilihan, susunan, perakam bersama dan pasport bersama. |
+| Loka 3–6 | Kandungan dan aliran asal masih berfungsi; mini permainan tiga misi memerlukan pembangunan berasingan. |
 | Pasport, Refleksi, Pemulihan/Pengukuhan | Aliran asal dikekalkan dan diuji regresi. |
 | SimpulLoka Rush dan Konsert | Aliran asal dikekalkan; tiada reka bentuk baharu dalam Fasa 4. |
 | Backend sekolah | Kod adapter/proxy/Apps Script tersedia. Konfigurasi atau sambungan Google sebenar tidak dapat disahkan melalui ujian setempat. |
@@ -42,7 +43,7 @@ Kod rasmi Loka 1 V2 berada dalam komit pelepasan yang mengandungi dokumen ini. D
 | ID backend / indeks JS | Simpulan bahasa | Tarikan | Maksud | Pelaksanaan semasa |
 | --- | --- | --- | --- | --- |
 | 1 / 0 | Dalam Tangan | Jatuhkan Botol | Sudah pasti diperoleh atau dikuasai. | Tiga misi V2, fizik trajektori mudah dan perlanggaran DOM, empat ilustrasi, pentas rakaman. |
-| 2 / 1 | Ambil Hati | Kedai Cenderamata | Menyenangkan atau menggembirakan hati seseorang. | Aliran asal LIHAT → TAFSIR → CABARAN → SIMPUL → CERITA; cabaran susun empat ayat. |
+| 2 / 1 | Ambil Hati | Kedai Cenderamata | Menyenangkan atau menggembirakan hati seseorang. | Tiga misi Kedai Cenderamata Ajaib; pembungkusan DOM/SVG, susunan cerita, rakaman sementara dan cop bersama. |
 | 3 / 2 | Anak Emas | Memanah | Orang yang paling disayangi atau diberi keutamaan. | Aliran asal; belum ada mini permainan memanah tiga misi. |
 | 4 / 3 | Air Muka | Swing Ride | Raut atau ekspresi wajah seseorang. | Aliran asal; belum ada permainan buaian tiga misi. |
 | 5 / 4 | Mandi Peluh | Roller Coaster | Berpeluh dengan banyaknya. | Aliran asal; belum ada permainan roller coaster tiga misi. |
@@ -55,7 +56,7 @@ Kod rasmi Loka 1 V2 berada dalam komit pelepasan yang mengandungi dokumen ini. D
 3. Guru mengumumkan Amir sebagai pemenang; hadiah sudah dalam tangan walaupun belum diterima.
 4. Amir menerima hadiah daripada guru.
 
-Jangan menyatakan keenam-enam mini permainan 2.5D sudah dibina. Nama tarikan sudah wujud bagi semua Loka, tetapi hanya Loka 1 menggunakan pelaksanaan tiga misi baharu.
+Jangan menyatakan keenam-enam mini permainan 2.5D sudah dibina. Nama tarikan sudah wujud bagi semua Loka, tetapi Loka 1 dan Loka 2 menggunakan pelaksanaan tiga misi baharu.
 
 ## 4. Perjalanan murid dan pintu kemajuan
 
@@ -100,7 +101,7 @@ work/                         Scratch/skrip QA; diabaikan Git
 netlify.toml                  Build, publish, Functions dan header
 ```
 
-Urutan: `backend.js` → `ferris-geometry.js` → `ferris.js` → `library.js` → `loka-one-reward.js` → `loka-one.js` → `app.js`. `lokaHtml()` mendelegasikan hanya indeks 0 kepada `LokaOne.html()`; indeks 1–5 kekal pada aliran asal. `render()` mengurus unmount/mount dan kelas `loka-one-page`, `home-page`, `library-page`, `ferris-page`. `applyPref()` memanggil hook setiap modul.
+Urutan: `backend.js` → `ferris-geometry.js` → `ferris.js` → `library.js` → `loka-one-reward.js` → `loka-one.js` → `app.js`. `lokaHtml()` mendelegasikan hanya indeks 0 kepada `LokaOne.html()`; indeks 1 kepada `LokaTwo.html()`; indeks 2–5 kekal pada aliran asal. `render()` mengurus unmount/mount dan kelas `loka-one-page`, `home-page`, `library-page`, `ferris-page`. `applyPref()` memanggil hook setiap modul.
 
 `LokaMissions` menyediakan nama dan prasyarat tiga misi untuk penggunaan semula. Ini asas kecil, bukan enjin generik siap untuk semua jenis tarikan. Pengembangan Loka 2–6 memerlukan implementasi dan kelulusan tersendiri.
 
@@ -263,3 +264,9 @@ Flag `stampCeremonyDone` berada dalam rekod setempat `simpulloka_v9_loka1_<mode>
 Focus/reduce/OS reduced motion terus memaparkan pasport terbuka dan cop; Senyap tidak memulakan AudioContext. Langkau dan watchdog 4.5 saat menamatkan animasi dengan selamat, termasuk jika API animasi/bunyi gagal. Grafik perayaan aria-hidden, status polite ringkas, fokus dipulihkan ke Kembali ke Roda Ferris apabila butang Langkau disembunyikan. Destinasi kekal boleh digunakan semasa upacara. Butang Loka 2 membuka **aktiviti asal yang sudah wujud**; tiada pembangunan Loka 2 baharu dimulakan.
 
 `npm run test:reward` menguji fasa dan pergerakan sebenar, bunyi sekali/tidak dimainkan dalam Senyap, persistensi dan reload, catatan PBD, Langkau setiap fasa, fokus keyboard, pembatalan, kegagalan animasi/audio, mod inklusif dan responsif. Media semakan 8 PNG + MP4/GIF telah dipush secara berasingan dalam komit `c155d2bb1a6c44b290dc58379e16d240695478ba`. Lihat `LOKA1_PASSPORT.md`; tiada media/debug baharu perlu dimasukkan dalam komit pelepasan kod.
+
+## 15. Fasa 5 — Loka 2 diluluskan
+
+Lihat `LOKA2_PHASE5.md` untuk aliran sebenar, fail, simpanan dan semakan. `loka-story.js` menyediakan avatar/perakam boleh guna semula; Loka 1 masih menggunakan perakam asal. `LokaPassport` ialah alias enjin cop asal dengan identiti pilihan, bukan pangkalan data ganjaran kedua. `saveProgress` menggunakan lokaId 2 dan kontrak PBD asal; audio tidak dihantar. Grafik kedai/cerita WebP berada dalam `images/loka2/`. Skrip dimuat selepas Loka 1 dan sebelum app.
+
+Media 32 PNG + tiga pasangan MP4/GIF dipush berasingan (`7129204`). Pelepasan kod tidak memasukkan media/debug. Loka 3 masih aktiviti asal pada masa pelepasan Loka 2; pembangunan Fasa 6 dan peraturan ganjaran tiga/enam Loka memerlukan perubahan seterusnya yang belum diluluskan.

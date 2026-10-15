@@ -49,3 +49,9 @@ Belum diuji: deployment Netlify sebenar, akaun Google/Sheets sebenar, login guru
 - Perbandingan kod mengesahkan 29 fungsi misi/rakaman/kemajuan sedia ada tidak berubah. Fail Gerbang, Perpustakaan, Ferris, backend dan struktur PBD tidak diubah. Tiada pembangunan Loka 2 atau perubahan projek V7.
 - Media semakan telah diterbitkan berasingan dalam komit `c155d2bb1a6c44b290dc58379e16d240695478ba`; tiada media atau fail debug ditambah dalam pelepasan kod ini.
 - Batas ujian peranti fizikal dan integrasi sekolah sebenar di atas masih terpakai. Build setempat dan push bukan pengesahan Netlify Published.
+
+## Pelepasan Loka 2 yang diluluskan
+
+Semakan sintaks, enam ujian Node dan build dijalankan semula. Suite `test:loka2` merangkumi aliran sebenar kedai, pointer hit/miss, pembungkusan, susunan, perakam, izin gagal/lewat, laluan lisan, pasport/persistensi, PBD berasingan, watchdog dan responsif. Suite Loka 1/pasport, Gerbang, Ferris, Library dan regresi enam Loka/Rush dijalankan semula sebelum commit. Lihat `LOKA2_PHASE5.md` untuk batas peranti fizikal dan backend sebenar.
+
+Keputusan semakan semula pelepasan Loka 2: semua perintah di atas lulus, termasuk browser Loka 2, Loka 1/pasport, Gerbang, Library, Ferris dan regresi umum; 0 pageerror.

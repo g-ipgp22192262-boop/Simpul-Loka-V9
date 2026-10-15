@@ -10,14 +10,18 @@ await page.evaluate(()=>navTo('rush'));assert.equal(await page.evaluate(()=>page
 await page.getByRole('button',{name:'Mod Inklusif'}).click();
 await page.locator('#reduce').check();await page.locator('#fontSize').selectOption('bigtext');
 assert(await page.locator('body').evaluate(e=>e.classList.contains('reduce')&&e.classList.contains('bigtext')));
-for(let i=1;i<6;i++){
+for(let i=2;i<6;i++){
  await page.evaluate(i=>{enterLoka(i);goStage(2)},i);
  for(let j=0;j<4;j++)await page.evaluate(j=>{selectCard(j);putCard(j)},j);
  await page.getByRole('button',{name:'Semak Susunan'}).click();
  await page.evaluate(async()=>{await markSimpul();navTo('story');startTalk();await finishTalk()});
  assert.equal(await page.evaluate(i=>progress[i+1].completed,i),true);
 }
-// Loka 1 follows the new three-mission interaction; the five other Loka retain their flow.
+// Loka 2 now uses its actual shop; Loka 3–6 retain their approved original flow.
+await page.evaluate(()=>enterLoka(1));await page.locator('[data-answer="0"]').click();await page.locator('#l2NextMission').click();await page.locator('[data-gift="0"]').click();await page.getByRole('button',{name:'Saya jelaskan sebab kepada cikgu.',exact:true}).click();await page.locator('#l2StartWrap').click();
+for(const [i,sel] of ['[data-box="0"]','#l2Insert','[data-ribbon="0"]','[data-greeting="0"]'].entries()){await page.locator(sel).click();if(i<3)await page.waitForFunction(n=>document.querySelector('#l2Arena')?.dataset.step===String(n),i+1);else await page.locator('[data-card]').first().waitFor();}
+for(let i=0;i<4;i++){await page.locator(`[data-card="${i}"]`).click();await page.locator(`[data-slot="${i}"]>button`).click();}await page.getByRole('button',{name:'Semak Susunan',exact:true}).click();await page.locator('#l2ToStage').click();await page.locator('#l2Oral').check();await page.locator('#l2Finish').click();await page.waitForFunction(()=>progress[2]?.completed);
+// Loka 1 retains its approved three-mission interaction.
 await page.evaluate(()=>enterLoka(0));await page.locator('[data-answer="0"]').click();await page.locator('#l1NextMission').click();
 for(let i=0;i<4;i++){if(!await page.locator('#l1Throw').isEnabled())await page.locator('#l1Refill').click();await page.locator('#l1Throw').click();if(i<3)await page.waitForFunction(n=>document.querySelectorAll('.l1-collected-strip figure').length===n,i+1);else await page.locator('[data-card]').first().waitFor();}
 for(let i=0;i<4;i++){await page.locator(`[data-card="${i}"]`).click();await page.locator(`[data-slot="${i}"]>button`).click();}
