@@ -1,5 +1,6 @@
 const {chromium} = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 import assert from 'node:assert/strict';
+import {completeLokaThree} from './loka-three-helpers.mjs';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox']});
 const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto('http://127.0.0.1:4173');
@@ -10,14 +11,16 @@ await page.evaluate(()=>navTo('rush'));assert.equal(await page.evaluate(()=>page
 await page.getByRole('button',{name:'Mod Inklusif'}).click();
 await page.locator('#reduce').check();await page.locator('#fontSize').selectOption('bigtext');
 assert(await page.locator('body').evaluate(e=>e.classList.contains('reduce')&&e.classList.contains('bigtext')));
-for(let i=2;i<6;i++){
+for(let i=3;i<6;i++){
  await page.evaluate(i=>{enterLoka(i);goStage(2)},i);
  for(let j=0;j<4;j++)await page.evaluate(j=>{selectCard(j);putCard(j)},j);
  await page.getByRole('button',{name:'Semak Susunan'}).click();
  await page.evaluate(async()=>{await markSimpul();navTo('story');startTalk();await finishTalk()});
  assert.equal(await page.evaluate(i=>progress[i+1].completed,i),true);
 }
-// Loka 2 now uses its actual shop; Loka 3–6 retain their approved original flow.
+// Loka 3 now uses its real archery arena. Loka 4–6 retain their original flow.
+await completeLokaThree(page);
+// Loka 2 retains its approved shop.
 await page.evaluate(()=>enterLoka(1));await page.locator('[data-answer="0"]').click();await page.locator('#l2NextMission').click();await page.locator('[data-gift="0"]').click();await page.getByRole('button',{name:'Saya jelaskan sebab kepada cikgu.',exact:true}).click();await page.locator('#l2StartWrap').click();
 for(const [i,sel] of ['[data-box="0"]','#l2Insert','[data-ribbon="0"]','[data-greeting="0"]'].entries()){await page.locator(sel).click();if(i<3)await page.waitForFunction(n=>document.querySelector('#l2Arena')?.dataset.step===String(n),i+1);else await page.locator('[data-card]').first().waitFor();}
 for(let i=0;i<4;i++){await page.locator(`[data-card="${i}"]`).click();await page.locator(`[data-slot="${i}"]>button`).click();}await page.getByRole('button',{name:'Semak Susunan',exact:true}).click();await page.locator('#l2ToStage').click();await page.locator('#l2Oral').check();await page.locator('#l2Finish').click();await page.waitForFunction(()=>progress[2]?.completed);
