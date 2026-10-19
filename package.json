@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js && node --check public/assets/loka-one.js && node --check public/assets/loka-one-reward.js && node --check public/assets/loka-story.js && node --check public/assets/loka-two-art.js && node --check public/assets/loka-two.js && node --check public/assets/loka-sequence.js && node --check public/assets/loka-rewards.js && node --check public/assets/loka-three-art.js && node --check public/assets/loka-three.js && node --check public/assets/loka-four-art.js && node --check public/assets/loka-four.js && node --check public/assets/loka-five-track.js && node --check public/assets/loka-five-art.js && node --check public/assets/loka-five.js && node --check public/assets/loka-six-motion.js && node --check public/assets/loka-six-final.js && node --check public/assets/loka-six.js",
+    "check": "node --check public/assets/app.js && node --check public/assets/backend.js && node --check netlify/functions/backend.mjs && node --check public/assets/ferris.js && node --check public/assets/ferris-geometry.js && node --check public/assets/library.js && node --check public/assets/loka-one.js && node --check public/assets/loka-one-reward.js && node --check public/assets/loka-story.js && node --check public/assets/loka-two-art.js && node --check public/assets/loka-two.js && node --check public/assets/loka-sequence.js && node --check public/assets/loka-rewards.js && node --check public/assets/loka-three-art.js && node --check public/assets/loka-three.js && node --check public/assets/loka-four-art.js && node --check public/assets/loka-four.js && node --check public/assets/loka-five-track.js && node --check public/assets/loka-five-art.js && node --check public/assets/loka-five.js && node --check public/assets/loka-six-motion.js && node --check public/assets/loka-six-final.js && node --check public/assets/loka-six.js && node --check public/assets/imbas-loka-state.js && node --check public/assets/imbas-loka.js",
     "test:browser": "node tests/browser.mjs",
     "test:ferris": "node tests/ferris-browser.mjs",
     "test:library": "node tests/library-browser.mjs",
@@ -17,7 +17,8 @@
     "test:loka4": "node tests/loka-four-browser.mjs",
     "test:loka5": "node tests/loka-five-browser.mjs",
     "test:loka6": "node tests/loka-six-browser.mjs",
-    "test:finale": "node tests/grand-finale-browser.mjs"
+    "test:finale": "node tests/grand-finale-browser.mjs",
+    "test:imbas": "node tests/imbas-loka-browser.mjs"
   },
   "engines": {
     "node": ">=22"
