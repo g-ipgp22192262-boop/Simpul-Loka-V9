@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import{readFileSync}from'node:fs';
+const c={Math,Number,Object};vm.runInNewContext(readFileSync('public/assets/loka-six-motion.js','utf8')+';globalThis.api=LokaSixMotion;',c);const m=c.api;
+test('pendulum position stays on one fixed suspension circle',()=>{for(let a=-.7;a<=.7;a+=.01){const p=m.point(a);assert(Math.abs(Math.hypot(p.x-500,p.y-80)-350)<1e-8);}});
+test('momentum is damped, bounded, and automatic control settles at each real target',()=>{for(const target of m.targets){let s={angle:0,velocity:0};for(let i=0;i<250;i++)s=m.step(s,.02,target);assert(Math.abs(s.angle-target)<.001);assert(Math.abs(s.velocity)<.001);}let s={angle:.6,velocity:1};for(let i=0;i<1200;i++){s=m.step(s,.02);assert(Math.abs(s.angle)<=.72);}assert(Math.abs(s.angle)<.005);});
+test('final swing returns exactly to the central dock, without an endless animation',()=>{assert.equal(m.final(0),0);assert(Math.abs(m.final(1))<1e-12);assert(Math.abs(m.final(.125))>.4);assert(Math.abs(m.final(.875))<.1);});

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {completeLokaThree} from './loka-three-helpers.mjs';
 import {completeLokaFour} from './loka-four-helpers.mjs';
 import {completeLokaFive} from './loka-five-helpers.mjs';
+import {completeLokaSix} from './loka-six-helpers.mjs';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,headless:true,args:['--no-sandbox']});
 const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto('http://127.0.0.1:4173');
@@ -13,14 +14,8 @@ await page.evaluate(()=>navTo('rush'));assert.equal(await page.evaluate(()=>page
 await page.getByRole('button',{name:'Mod Inklusif'}).click();
 await page.locator('#reduce').check();await page.locator('#fontSize').selectOption('bigtext');
 assert(await page.locator('body').evaluate(e=>e.classList.contains('reduce')&&e.classList.contains('bigtext')));
-for(let i=5;i<6;i++){
- await page.evaluate(i=>{enterLoka(i);goStage(2)},i);
- for(let j=0;j<4;j++)await page.evaluate(j=>{selectCard(j);putCard(j)},j);
- await page.getByRole('button',{name:'Semak Susunan'}).click();
- await page.evaluate(async()=>{await markSimpul();navTo('story');startTalk();await finishTalk()});
- assert.equal(await page.evaluate(i=>progress[i+1].completed,i),true);
-}
-// Loka 3–5 use their real interactive arenas; Loka 6 retains its original flow.
+await completeLokaSix(page);
+// All six Loka use their real interactive games.
 await completeLokaThree(page);
 await completeLokaFour(page);
 await completeLokaFive(page);
