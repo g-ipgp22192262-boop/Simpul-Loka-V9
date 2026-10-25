@@ -4,7 +4,7 @@ const Ferris = (() => {
   const G=FerrisGeometry,asset='assets/images/ferris-prototype/';
   const rides=['bottles','gift','bow','swing','coaster','ship'];
   const animalNames={panda:'Panda',harimau:'Harimau',kucing:'Kucing',ulat:'Ulat'};
-  const colors=['#c77f38','#aa5c98','#3d8d7f','#547fad','#7d5dab','#b65970'];
+  const colors=['#d9ab69','#bf82b0','#78b5a3','#86a9d0','#a394cd','#cf92a3'];
   // Seconds, including alignment/walking/boarding/ride/zoom/title: 4.2 s total.
   const timing={align:.8,walk:.7,open:.2,board:.45,sit:.2,close:.2,ride:.8,zoom:.55,reveal:.3};
   const duration=Object.values(timing).reduce((a,b)=>a+b,0);

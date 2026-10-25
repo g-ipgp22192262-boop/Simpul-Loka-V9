@@ -1,6 +1,6 @@
 {
   "name": "simpulloka-v9",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,6 +22,7 @@
     "test:teacher": "node tests/sudut-guru-browser.mjs",
     "dev:pbd": "node scripts/pbd-dev-server.mjs",
     "test:pbd": "node tests/pbd-browser.mjs",
+    "test:v91": "node tests/v91-browser.mjs",
     "pbd:passcode": "node scripts/pbd-passcode.mjs"
   },
   "engines": {

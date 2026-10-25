@@ -44,6 +44,6 @@ for(let i=0;i<6;i++){
  await page.evaluate(()=>{speech=()=>{}});await page.getByRole('button',{name:'Dengar soalan'}).click();
  await page.evaluate(()=>v9Answer(V9_Q[v9Rush.index].key));
 }
-assert.equal(await page.evaluate(()=>v9Rush.finished),true);await page.getByRole('button',{name:'Masuk Konsert Penutup'}).click();assert(await page.getByRole('heading',{name:'Konsert Jelajah SimpulLoka!'}).count());
+assert.equal(await page.evaluate(()=>v9Rush.finished),true);await page.getByRole('button',{name:'Masuk Konsert Penutup'}).click();assert(await page.getByRole('heading',{name:'Konsert SimpulLoka'}).count());
 await page.setViewportSize({width:390,height:844});await page.evaluate(()=>navTo('home'));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
 assert.deepEqual(errors,[]);console.log('PASS browser: home/navigation, inclusive mode, six Loka, persistence, reflection, recovery/reinforcement, Rush controls/gates/audio/retry, concert, mobile. 0 page errors.');await browser.close();
