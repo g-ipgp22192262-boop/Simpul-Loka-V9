@@ -1,7 +1,8 @@
 import {cp,rm,mkdir,readdir,writeFile} from 'node:fs/promises';
+import {includePublicFile} from './build-filter.mjs';
 await rm('dist',{recursive:true,force:true});
 await mkdir('dist',{recursive:true});
-await cp('public','dist',{recursive:true,filter:source=>!source.endsWith('/README.md')});
+await cp('public','dist',{recursive:true,filter:includePublicFile});
 console.log('Built public/ → dist/ (frontend only)');
 
 // Publish a truthful inventory of teacher MP3s; no fake or synthesized recordings.
