@@ -13,7 +13,7 @@ const MagicLibrary=(()=>{
     'Seorang murid mengelap peluh selepas melakukan aktiviti luar.',
     'Seorang murid bermegah-megah di hadapan rakan-rakannya.'
   ];
-  const audioFiles=Object.freeze(Object.fromEntries([...ids,'kitab-ilmu'].map(id=>[id,`assets/audio/${id}.mp3`])));
+  const audioFiles=Object.fromEntries([...ids,'kitab-ilmu'].map(id=>[id,`assets/audio/${id}.mp3`]));
   let root=null,dialog=null,controller=null,current=-1,opener=null,visited=new Set(),storageKey='',available=new Set(),manifestReady=false,epoch=0,audio=null,zoomed=false,audioToken=0,motionPhase='idle',motionRun=0,motionTimer=0,motionAnimations=[],flyingBook=null,sourceBook=null,motionPreference=null;
   const icon=(id,cls='')=>`<svg class="${cls}" viewBox="0 0 80 80" aria-hidden="true"><use href="${imageRoot}library-icons.svg#${id}"></use></svg>`;
   const key=()=>`simpulloka_v9_library_${SimpulBackend.mode}_${session?.studentId||'guest'}`;
@@ -216,6 +216,7 @@ const MagicLibrary=(()=>{
     fetch('assets/audio/library-audio.json',{signal:controller.signal}).then(r=>r.ok?r.json():{available:[]}).then(data=>{
       if(epoch!==run||!root)return;
       available=new Set(Array.isArray(data.available)?data.available.filter(id=>Object.hasOwn(audioFiles,id)):[]);
+      for(const id of available){const path=data.sources?.[id];if(typeof path==='string'&&path===`assets/audio/guru/perpustakaan/${id}.mp3`)audioFiles[id]=path;}
     }).catch(()=>{}).finally(()=>{if(root&&epoch===run){manifestReady=true;renderAudio();}});
   }
   function unmount(){

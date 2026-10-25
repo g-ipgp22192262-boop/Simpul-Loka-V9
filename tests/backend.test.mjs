@@ -40,7 +40,7 @@ test('proxy: optional setup, allowlist, secret only upstream, teacher failure',a
  const response=await handler(request({action:'createStudent',args:['Aina','panda','3A']}));
  assert.equal((await response.json()).data.studentId,'test');
  globalThis.fetch=async()=>Response.json({ok:false,error:'Kata laluan guru tidak sah.'});
- assert.equal((await handler(request({action:'teacherDashboard',args:['wrong']}))).status,400);
+ assert.equal((await handler(request({action:'teacherDashboard',args:['wrong']}))).status,503);
  }finally{
  globalThis.fetch=originalFetch;
  for(const [key,value] of [['APPS_SCRIPT_URL',oldUrl],['APPS_SCRIPT_PROXY_SECRET',oldSecret]]){if(value===undefined)delete process.env[key];else process.env[key]=value;}

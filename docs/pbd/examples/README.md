@@ -1,0 +1,3 @@
+# Contoh struktur sahaja — HASIL SIMULASI
+Dua CSV ini menggunakan seorang murid rekaan, masa ujian tetap dan kod Apps Script sebenar pada API Sheets dalam memori. Bukan eksport Google Sheets sebenar. Tiada Spreadsheet ID, URL, kod laluan atau token murid disertakan.
+L4 mencatat salah kemudian betul selepas petunjuk serta satu jawapan ayat betul; status Obj1 Betul, Obj2 Belum Dinilai. L1–3 tiada item yang sesuai. recordId/runId/eventId ialah pengecam dalaman automatik; pengguna tidak menaipnya. Jangan tampal contoh ini ke rekod murid sebenar. Setup mencipta header yang sama pada dua tab dalam spreadsheet ujian kosong milik anda apabila anda menjalankannya sendiri.

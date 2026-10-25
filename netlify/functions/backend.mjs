@@ -1,5 +1,6 @@
-const actions = new Set(['createStudent','getStudent','saveProgress','saveReflection','saveRushResult','teacherDashboard','saveAssessment']);
-export default async (request) => {
+import{createHmac}from'node:crypto';
+const actions = new Set(['createStudent','getStudent','saveProgress','saveReflection','saveRushResult','teacherDashboard','saveAssessment','pbdStudent']);
+export default async (request,context={}) => {
   const url = process.env.APPS_SCRIPT_URL, secret = process.env.APPS_SCRIPT_PROXY_SECRET;
   const configured = !!(url && secret);
   const json = (body,status=200) => Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
@@ -12,9 +13,11 @@ export default async (request) => {
     if (body.length > 16000) return json({ok:false,error:'Permintaan terlalu besar.'},413);
     const {action,args} = JSON.parse(body);
     if (!actions.has(action) || !Array.isArray(args) || args.length > 10) return json({ok:false,error:'Operasi tidak sah.'},400);
-    const upstream = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,args,secret}),signal:AbortSignal.timeout(15000)});
+    // Legacy password-per-request teacher routes are disabled until secure server sessions are integrated.
+    if (['teacherDashboard','saveAssessment'].includes(action)) return json({ok:false,error:'Akses rekod guru belum diaktifkan. Pengesahan sesi pelayan diperlukan.'},503);
+    const upstream = await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,args,secret,clientKey:createHmac('sha256',secret).update(String(context.ip||'unknown')).digest('hex')}),signal:AbortSignal.timeout(15000)});
     if (!upstream.ok) throw Error('upstream');
     const result = await upstream.json();
-    return json(result,result.ok?200:400);
+    return json(result,result.ok?200:([400,401,403,409,413,429,503].includes(result.status)?result.status:400));
   } catch { return json({ok:false,error:'Sambungan backend gagal. Sila cuba lagi.'},502); }
 };

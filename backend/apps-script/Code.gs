@@ -15,7 +15,7 @@ const REFERENCE = [
  [1,'Dalam Tangan','Jatuhkan Botol','Sudah pasti diperoleh atau dikuasai'],
  [2,'Ambil Hati','Kedai Cenderamata','Menyenangkan atau menggembirakan hati seseorang'],
  [3,'Anak Emas','Memanah','Orang yang paling disayangi atau diberi keutamaan'],
- [4,'Air Muka','Swing Ride','Raut atau ekspresi wajah seseorang'],
+ [4,'Air Muka','Buaian Diraja','Maruah atau harga diri seseorang yang perlu dijaga.'],
  [5,'Mandi Peluh','Roller Coaster','Berpeluh dengan banyaknya'],
  [6,'Cakap Besar','Pirate Ship','Bercakap dengan sombong atau bermegah-megah']
 ];
@@ -52,13 +52,16 @@ function sheet_(name){const id=PropertiesService.getScriptProperties().getProper
 function rows_(name){const sh=sheet_(name),values=sh.getDataRange().getValues();const keys=TABLES[name];return values.slice(1).filter(r=>r[0]!==''&&r[0]!==null).map((r,i)=>({row:i+2,obj:Object.fromEntries(keys.map((k,j)=>[k,r[j]]))}));}
 function safeText_(x,max){return String(x==null?'':x).replace(/[<>\u0000-\u001f]/g,'').trim().slice(0,max);}
 function validAvatar_(a){return ['panda','harimau','kucing','ulat'].includes(a)?a:'panda';}
-function student_(id,token){const r=rows_('Murid').find(x=>x.obj.studentId===id);if(!r||!token||hash_(String(token))!==r.obj.accessHash)throw Error('Sesi murid tidak sah. Sila masuk menggunakan tiket asal.');return r;}
+function student_(id,token){const r=rows_('Murid').find(x=>x.obj.studentId===id);if(!r||!token||hash_(String(token))!==r.obj.accessHash)throw Object.assign(Error('Sesi murid tidak sah. Sila masuk menggunakan tiket asal.'),{status:401});return r;}
 function teacher_(password){const p=PropertiesService.getScriptProperties();if(!p.getProperty('TEACHER_HASH')||!password||hash_(p.getProperty('TEACHER_SALT')+String(password))!==p.getProperty('TEACHER_HASH'))throw Error('Kata laluan guru tidak sah.');}
-function createStudent(nickname,avatar,kelas){
+function createStudent(nickname,avatar,kelas,requestToken){
  const name=safeText_(nickname,30),className=safeText_(kelas,40);if(name.length<2)throw Error('Nama panggilan mesti sekurang-kurangnya 2 aksara.');if(className.length<2)throw Error('Sila masukkan kelas.');
  const lock=LockService.getScriptLock();lock.waitLock(15000);
  try{
-  const id='SL-'+Utilities.getUuid().slice(0,8).toUpperCase(),token=Utilities.getUuid()+Utilities.getUuid(),now=new Date().toISOString();
+  if(requestToken!==undefined&&(!/^[a-f0-9-]{72}$/.test(String(requestToken))))throw Error('Permintaan tiket tidak sah.');
+  const token=requestToken||Utilities.getUuid()+Utilities.getUuid(),now=new Date().toISOString();
+  if(requestToken){const old=rows_('Murid').find(x=>x.obj.accessHash===hash_(token));if(old){if(old.obj.nickname!==name||old.obj.kelas!==className)throw Error('Permintaan tiket tidak sepadan.');return {...getStudent(old.obj.studentId,token),token};}}
+  const id='SL-'+Utilities.getUuid().toUpperCase();
   sheet_('Murid').appendRow([id,name,validAvatar_(avatar),hash_(token),now,now,className]);
   return {studentId:id,token,nickname:name,kelas:className,avatar:validAvatar_(avatar),progress:[],reflection:null};
  }finally{lock.releaseLock();}
@@ -128,8 +131,9 @@ function doPost(e) {
   const body = JSON.parse(e.postData.contents);
   const secret = PropertiesService.getScriptProperties().getProperty('NETLIFY_PROXY_SECRET');
   if (!secret || body.secret !== secret) throw Error('Sambungan tidak dibenarkan.');
-  const methods = {createStudent,getStudent,saveProgress,saveReflection,saveRushResult,teacherDashboard,saveAssessment};
+  const methods = {createStudent,getStudent,saveProgress,saveReflection,saveRushResult,pbdStudent,pbdAuthAttempt,pbdAuthFinish,pbdAuthStatus,pbdAuthLogout,pbdTeacherList,pbdTeacherAssess};
   if (!Object.prototype.hasOwnProperty.call(methods,body.action) || !Array.isArray(body.args)) throw Error('Operasi tidak sah.');
+  if(body.action==='createStudent')pbdTicketPermit_(body.clientKey);
   return output({ok:true,data:methods[body.action].apply(null,body.args)});
- } catch (error) { return output({ok:false,error:String(error.message || 'Permintaan gagal.')}); }
+ } catch (error) { return output({ok:false,status:error.status||503,error:error.status?String(error.message):'Perkhidmatan rekod tidak tersedia. Semak konfigurasi Apps Script.'}); }
 }

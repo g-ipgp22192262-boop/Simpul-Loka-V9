@@ -9,3 +9,6 @@ const audioFiles=await readdir('public/assets/audio').catch(()=>[]);
 const audioIds=['dalam-tangan','ambil-hati','anak-emas','air-muka','mandi-peluh','cakap-besar','kitab-ilmu'];
 await mkdir('dist/assets/audio',{recursive:true});
 await writeFile('dist/assets/audio/library-audio.json',JSON.stringify({available:audioIds.filter(id=>audioFiles.includes(id+'.mp3'))}));
+
+// Shared source generates actual self-contained teacher downloads and truthful media inventory.
+await import('./build-teacher-resources.mjs');

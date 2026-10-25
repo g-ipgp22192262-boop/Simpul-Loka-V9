@@ -1,0 +1,2 @@
+# Video panduan cikgu (belum tersedia)
+Masukkan `panduan-simpulloka.mp4` (H.264/AAC MP4) dan, jika tersedia, `panduan-simpulloka.ms.vtt` dengan cue Bahasa Melayu yang sepadan. Jangan gunakan video/AI suara tiruan cikgu. Jalankan build; manifest diterbitkan daripada fail sebenar sahaja. Poster sedia ada ialah ilustrasi, bukan dakwaan video telah tersedia. Tiada autoplay. Jika fail tiada: “Video panduan akan disediakan”, panduan teks kekal tersedia. Semak media boleh decode sebelum integrasi akhir.

@@ -16,21 +16,23 @@ const SimpulBackend = (() => {
         body: JSON.stringify({action: fn, args}), signal: AbortSignal.timeout(20000)
       });
       const result = await response.json();
-      if (!response.ok || !result.ok) throw Error(result.error || 'Sambungan backend gagal. Cuba lagi.');
+      if (!response.ok || !result.ok) throw Object.assign(Error(result.error || 'Sambungan backend gagal. Cuba lagi.'),{status:response.status});
       return result.data;
     }
     if (['teacherDashboard','saveAssessment'].includes(fn)) throw Error('Sudut Cikgu memerlukan sambungan backend sekolah. Rekod setempat bukan rekod PBD sekolah.');
     const db = read(key) || {};
     if (fn === 'createStudent') {
-      const [nickname, avatar, kelas] = args;
+      const [nickname, avatar, kelas, requestToken] = args;
+      if(requestToken){const prior=Object.values(db).find(s=>s.token===requestToken);if(prior){if(prior.nickname!==nickname.trim()||prior.kelas!==kelas.trim())throw Error('Permintaan tiket tidak sepadan.');return prior;}}
       if (nickname.trim().length < 2 || kelas.trim().length < 2) throw Error('Nama panggilan dan kelas diperlukan.');
-      const studentId = 'SL-' + crypto.randomUUID().slice(0,8).toUpperCase();
-      const student = {studentId, token:crypto.randomUUID(), nickname:nickname.trim().slice(0,30), avatar, kelas:kelas.trim().slice(0,40), progress:[], reflection:null};
+      const studentId = 'SL-' + crypto.randomUUID().toUpperCase();
+      const student = {studentId, token:requestToken||crypto.randomUUID(), nickname:nickname.trim().slice(0,30), avatar, kelas:kelas.trim().slice(0,40), createdAt:new Date().toISOString(), progress:[], reflection:null};
       db[studentId] = student; save(db); return student;
     }
     const [id, token, ...values] = args, student = db[id];
     if (!student || !token || student.token !== token) throw Error('Tiket setempat tidak ditemui pada pelayar ini.');
     if (fn === 'getStudent') return student;
+    if (fn === 'pbdStudent') {const [op,p]=values,now=new Date().toISOString();student.pbd ||= PbdModel.newRecord(student,now);if(op==='start')PbdModel.start(student.pbd,p.lokaId,p.runId,now);else if(op==='response')PbdModel.respond(student.pbd,p.runId,p,now);else if(!['sync','told'].includes(op))throw Error('Operasi murid tidak sah.');PbdModel.sync(student.pbd,student.progress,now,p.runId,op==='told');save(db);return {saved:true,source:'local'};}
     if (fn === 'saveProgress') {
       const [lokaId, attempts, hintLevel, gameCorrect, simpulDone, storyDone] = values;
       if (!Number.isInteger(lokaId) || lokaId < 1 || lokaId > 6) throw Error('Loka tidak sah.');

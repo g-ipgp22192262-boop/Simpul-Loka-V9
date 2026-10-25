@@ -1,0 +1,4 @@
+# Audio suara cikgu — persediaan sahaja
+Lihat `AUDIO_GURU_SCRIPTS.md` dan `assets/teacher-audio-catalog.js` untuk 65 slot, skrip dan status butang aktif/slot belum dipasang.
+Masukkan MP3 sebenar mengikut laluan yang dipetakan, kemudian build. Tiada rakaman dijana dalam fasa ini. Manifest build hanya menyenaraikan MP3 dengan header ID3/MPEG yang tersedia; uji decode dan dengar sendiri sebelum penerbitan.
+Arahan sedia ada menggunakan rakaman untuk awalan teks yang sepadan sahaja. Maklum balas dinamik atau teks lain kekal sandaran sintesis pelayar berlabel. Bacaan hanya selepas klik pengguna. Perpustakaan tiada TTS: rakaman guru/perpustakaan/<id>.mp3 diutamakan, kemudian laluan lama assets/audio/<id>.mp3; jika tiada, status “Audio cikgu akan ditambah”. Jangan letakkan audio murid di sini. Tiada upload rakaman murid.

@@ -1,0 +1,16 @@
+/* Test/development only: executes the actual .gs files against an in-memory spreadsheet API.
+ * Never imported by production gateway. This is NOT Google Sheets connectivity evidence.
+ */
+import vm from'node:vm';import{readFile}from'node:fs/promises';import{randomUUID,createHash}from'node:crypto';
+export async function createAppsScriptSimulator({clock=()=>Date.now()}={}){
+ const sheets=new Map(),props=new Map(),propertyApi={getProperty:k=>props.get(k)||null,setProperty(k,v){props.set(k,String(v));return this;},setProperties(o){for(const[k,v]of Object.entries(o))props.set(k,String(v));return this;},deleteProperty:k=>props.delete(k),getProperties:()=>Object.fromEntries(props)};
+ class Range{constructor(sheet,row,col,rows,cols){Object.assign(this,{sheet,row,col,rows,cols});}getValues(){return Array.from({length:this.rows},(_,r)=>Array.from({length:this.cols},(_,c)=>this.sheet.data[this.row+r-1]?.[this.col+c-1]??''));}setValues(values){for(let r=0;r<this.rows;r++){this.sheet.data[this.row+r-1]??=[];for(let c=0;c<this.cols;c++)this.sheet.data[this.row+r-1][this.col+c-1]=values[r][c];}return this;}setNumberFormat(){return this;}}
+ class Sheet{constructor(name){this.name=name;this.data=[];}appendRow(row){this.data.push([...row]);return this;}getLastRow(){return this.data.length;}getLastColumn(){return Math.max(0,...this.data.map(r=>r.length));}getRange(row,col,rows=1,cols=1){return new Range(this,row,col,rows,cols);}getDataRange(){return this.getRange(1,1,Math.max(1,this.getLastRow()),Math.max(1,this.getLastColumn()));}setFrozenRows(){}hideColumns(){}}
+ const ss={getSheetByName:n=>sheets.get(n)||null,insertSheet(n){const s=new Sheet(n);sheets.set(n,s);return s;},getId:()=> 'SIMULATION_ONLY',getUrl:()=> 'SIMULATION_ONLY'};
+ const fixedDate=class extends Date{constructor(...args){super(...(args.length?args:[clock()]));}static now(){return clock();}};
+ const ctx=vm.createContext({Date:fixedDate,Intl,PropertiesService:{getScriptProperties:()=>propertyApi},SpreadsheetApp:{create:()=>ss,openById:()=>ss},LockService:{getScriptLock:()=>({waitLock(){},releaseLock(){}})},Utilities:{getUuid:randomUUID,DigestAlgorithm:{SHA_256:'sha256'},Charset:{UTF_8:'utf8'},computeDigest:(_,s)=>[...createHash('sha256').update(s).digest()]},Logger:{log(){}},ContentService:{MimeType:{JSON:'json'},createTextOutput:text=>({text,setMimeType(){return this;}})}});
+ for(const path of ['backend/apps-script/Code.gs','backend/apps-script/teacher-records/PbdModel.gs','backend/apps-script/teacher-records/Records.gs'])vm.runInContext(await readFile(path,'utf8'),ctx,{filename:path});
+ propertyApi.setProperty('NETLIFY_PROXY_SECRET',randomUUID());ctx.setupSimpulLoka();ctx.setupPbdRecords();let unavailable=false;
+ async function invoke(action,args){if(unavailable)throw Object.assign(Error('Simulasi Sheets tidak tersedia.'),{status:503});const result=JSON.parse(ctx.doPost({postData:{contents:JSON.stringify({action,args,secret:props.get('NETLIFY_PROXY_SECRET'),clientKey:createHash('sha256').update('test-client').digest('hex')})}}).text);if(!result.ok)throw Object.assign(Error(result.error),{status:result.status});return result.data;}
+ return{invoke,sheets,props,ctx,setUnavailable:v=>{unavailable=v;}};
+}
