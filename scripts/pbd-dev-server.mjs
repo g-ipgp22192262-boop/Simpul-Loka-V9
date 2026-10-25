@@ -1,4 +1,12 @@
-import http from'node:http';import{readFile,stat}from'node:fs/promises';import{resolve,extname}from'node:path';import{fileURLToPath}from'node:url';import{createTeacherHandler}from'../backend/server/teacher-gateway.mjs';import backend from'../netlify/functions/backend.mjs';
+import http from'node:http';import{readFile,stat}from'node:fs/promises';import pathApi,{resolve,extname}from'node:path';import{fileURLToPath}from'node:url';import{createTeacherHandler}from'../backend/server/teacher-gateway.mjs';import backend from'../netlify/functions/backend.mjs';
+// Use the native path API; URL separators are not filesystem separators on Windows.
+export function resolveStaticPath(base,pathname,paths=pathApi){
+ let decoded;try{decoded=decodeURIComponent(pathname==='/'?'/index.html':pathname);}catch{return null;}
+ if(!decoded.startsWith('/')||decoded.includes('\0'))return null;
+ const target=paths.resolve(base,'.'+decoded),relative=paths.relative(base,target);
+ if(!relative||relative==='..'||relative.startsWith('..'+paths.sep)||paths.isAbsolute(relative))return null;
+ return target;
+}
 export async function createPbdServer({env=process.env,simulator=null,port=4180}={}){
  const origin=`http://127.0.0.1:${port}`,config={...env,PBD_SITE_ORIGIN:origin,PBD_LOCAL_HTTP:'1'},teacher=createTeacherHandler({env:config,invoke:simulator?.invoke,source:simulator?'simulation':'google-sheets'}),base=resolve('dist');
  const server=http.createServer(async(req,res)=>{try{const parts=[];let size=0;for await(const part of req){size+=part.length;if(size>18000){res.writeHead(413);res.end('Permintaan terlalu besar.');return;}parts.push(part);}const url=new URL(req.url,origin),request=new Request(url,{method:req.method,headers:req.headers,...(!['GET','HEAD'].includes(req.method)?{body:Buffer.concat(parts)}:{})});let response;
@@ -7,7 +15,7 @@ export async function createPbdServer({env=process.env,simulator=null,port=4180}
  if(!simulator)response=await backend(request);
  else if(req.method==='GET')response=Response.json({configured:true,source:'simulation'});
  else{try{const body=await request.json();if(!['createStudent','getStudent','saveProgress','saveReflection','saveRushResult','pbdStudent'].includes(body.action)||!Array.isArray(body.args))throw Object.assign(Error('Operasi tidak dibenarkan.'),{status:403});response=Response.json({ok:true,data:await simulator.invoke(body.action,body.args)});}catch(e){response=Response.json({ok:false,error:e.message},{status:e.status||400});}}
- }else{const path=resolve(base,'.'+decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname));if(!path.startsWith(base+'/')){res.writeHead(403);res.end();return;}try{const data=await readFile(path);const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.mp3':'audio/mpeg','.mp4':'video/mp4','.vtt':'text/vtt'};res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-store'});res.end(req.method==='HEAD'?null:data);return;}catch{res.writeHead(404);res.end('Tidak ditemui');return;}}
+ }else{const path=resolveStaticPath(base,url.pathname);if(path===null){res.writeHead(403);res.end();return;}try{const data=await readFile(path);const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.mp3':'audio/mpeg','.mp4':'video/mp4','.vtt':'text/vtt'};res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-store'});res.end(req.method==='HEAD'?null:data);return;}catch{res.writeHead(404);res.end('Tidak ditemui');return;}}
  res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));
  }catch{res.writeHead(500,{'Content-Type':'application/json'});res.end(JSON.stringify({ok:false,error:'Ralat pelayan setempat.'}));}});
  await new Promise((yes,no)=>{server.once('error',no);server.listen(port,'127.0.0.1',yes);});return{server,origin,close:()=>new Promise(resolve=>server.close(resolve))};
