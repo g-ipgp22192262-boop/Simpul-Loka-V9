@@ -5,7 +5,7 @@
 - Gerbang: label versi di penjuru dibuang; tiga langkah tiket → susun empat gambar → bercerita diletakkan di atas kandungan. Jarak hero, tiket dan watak dikemaskan.
 - Header: enam pautan sahaja, mengikut susunan Gerbang, Peta Ilmu, Roda Ferris, Imbas Loka, Pasport, Sudut Guru. Header tidak bertindih dengan kawalan permainan. Rush, Pemulihan dan Pengukuhan tidak dipadam sebagai fungsi legasi, tetapi tiada akses daripadanya dalam navigasi/aliran utama.
 - Ferris: kemasan warna pastel, emas, bayang dan label; koordinat, kawalan dan mekanik pemilihan gondola dikekalkan.
-- Loka 4: Studio Foto Air Muka menggantikan perjalanan pulau/buaian. Empat foto rawak, slot photobooth, seret-lepas dan tekan-pilih, semak, peluang cuba semula, petunjuk bertahap, cetakan jalur foto, Langkau Animasi. Misi 3 ialah penceritaan lisan tanpa mikrofon/kamera/rakaman. Cerita Amir/Sofia dan makna maruah/harga diri dikekalkan.
+- Loka 4: Studio Foto Air Muka menggantikan perjalanan pulau/buaian. Empat foto rawak, slot photobooth, seret-lepas dan tekan-pilih, semak, peluang cuba semula, petunjuk bertahap, cetakan jalur foto, Langkau Animasi. Misi 3 menggunakan komponen rakaman LokaStory asal: mula/henti, main semula, rakam semula dan muat turun pilihan. Mikrofon diminta hanya melalui butang Rakam Cerita; audio kekal dalam memori pelayar, tidak dihantar ke Sheets/pelayan. Laluan bercerita langsung bersama guru tersedia jika izin ditolak atau rakaman tidak disokong. Cerita Amir/Sofia dan makna maruah/harga diri dikekalkan.
 - Dua item bahasa L4 sedia ada dikekalkan sebagai semakan foto selepas susunan, bukan permainan utama baharu. ID API `l4-p3`/`l4-p4` kekal untuk keserasian PBD; ia bukan lagi nama pulau dalam permainan. Tiada skema/API/GAS ditukar. Skor guru kekal berasingan.
 - Loka 5/6: pada desktop, trek/kapal dan kawalan menggunakan dua lajur; geometri, pergerakan, aktiviti, empat gambar dan ganjaran dikekalkan. Telefon menggunakan satu lajur.
 - Imbas: enam set empat gambar menggunakan atlas sebenar. Urutan siap murid digunakan jika sah; selainnya urutan contoh. Kenangan/konsert boleh dilihat sebelum lengkap. Refleksi akhir memerlukan enam Loka unik, dengan perasaan, pembelajaran, bintang 1–5 dan ringkasan. Respons kendiri kekal dalam pelayar, bukan skor PBD.
@@ -66,3 +66,13 @@ Pemilik telah melaporkan sambungan Google sebenar berjaya pada Windows sebelum p
 7. Gunakan origin yang sama untuk mengekalkan tiket/kemajuan dalam pelayar. Jangan clear site data/localStorage. Cuba tiket rekaan dan simpan penilaian di Sheets untuk mengesahkan sambungan semula.
 
 Tiada deployment hosting atau pengemaskinian Apps Script Google diperlukan untuk perubahan frontend ini. Commit menggunakan penanda skip Netlify/CI.
+
+## Kemasan Pasport, Sijil dan pemulihan rakaman Loka 4
+
+Header/navigasi kekal ungu pekat #3F2458, tab aktif emas. Pasport mengekalkan konsep buku terbuka dengan enam cap bingkai dakwat berganda, nombor Loka, ikon, nama dan status yang padat. Huraian makna panjang dikeluarkan daripada cap (kandungan pembelajaran kekal dalam Loka/Perpustakaan). Sijil menggunakan bingkai emas berhias dan mahkota dengan identiti ungu; syarat enam Loka dan format muat turun SVG tidak berubah.
+
+Fail kemas kini: public/assets/app.js (markup Pasport sahaja), public/assets/loka-four.js, public/assets/loka-six-final.js (grafik SVG Sijil sahaja), public/assets/v91.css, tests/v91-browser.mjs, tests/loka-four-recording-browser.mjs (baharu), SIMPULLOKA_V9_1.md. Tiada perubahan pada modul rakaman bersama, permainan Loka lain, Ferris, Imbas, API, backend, GAS atau environment.
+
+Ujian rakaman: jalankan `node tests/loka-four-recording-browser.mjs` dengan Playwright dan Chromium. Ujian melibatkan MediaRecorder sebenar menggunakan mikrofon sintetik pelayar, replay/rakam semula/download, Mod Senyap, penolakan izin dan laluan lisan; tiada POST audio atau audio dalam localStorage. Pasport diperiksa pada 1366/390/320px dan Sijil pada desktop/telefon. Foto semakan setempat: work/loka4-passport-fix/ (diabaikan Git). Mikrofon perkakasan Windows sebenar dan sambungan Google sebenar masih memerlukan ujian pemilik.
+
+Windows: hentikan pelayan; gantikan empat fail public/assets di atas daripada ZIP branch work tanpa menyentuh .env.pbd.local. Kemas kini tests jika mahu menjalankan regresi browser. Jalankan npm run check, npm test, npm run build, kemudian mulakan semula pelayan PBD seperti biasa.

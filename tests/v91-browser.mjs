@@ -20,7 +20,7 @@ try{
   if(width>=1000)await p.locator('[data-card="0"]').dragTo(p.locator('[data-slot="0"]'));else{await p.locator('[data-card="0"]').click();await p.locator('[data-slot="0"]>button').click();}
   assert.equal(await p.locator('[data-slot="0"] .l4-picture').count(),1);
   await p.evaluate(()=>LokaFour.resetOrder());await arrangeFour(p);
-  assert.equal(await p.locator('button[id="l4Record"]').count(),0);assert.equal(await p.locator('.photo-strip .l4-picture').count(),4);
+  assert.equal(await p.locator('button[id="l4Record"]').count(),1);assert.equal(await p.locator('.l2-story-strip .l4-picture').count(),4);
   await p.locator('#l4Oral').check();await p.locator('#l4Finish').click();await p.waitForFunction(()=>progress[4]?.completed===true);
   await p.evaluate(()=>{navTo('home');});await p.screenshot({path:`work/v91/home-${width}.png`,fullPage:true});
   for(const page of ['wheel','imbas','passport','teacher']){await p.evaluate(page=>navTo(page),page);await p.waitForTimeout(100);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`overflow ${page} ${width}`);await p.screenshot({path:`work/v91/${page}-${width}.png`,fullPage:true});}
