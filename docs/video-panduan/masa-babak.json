@@ -1,0 +1,223 @@
+{
+  "duration": 280,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "narration": "none",
+  "chapters": [
+    {
+      "start": 0,
+      "end": 30,
+      "title": "Pengenalan",
+      "subtitle": "Gerbang SimpulLoka",
+      "narration_script": "Selamat datang ke SimpulLoka, taman tema pembelajaran simpulan bahasa untuk Bahasa Melayu Tahun Tiga. Dalam kelas inklusif, guru boleh memilih Loka mengikut masa dan keperluan individu. Murid meneroka makna, menyusun empat gambar dan bercerita dengan bahasa yang indah serta santun. Mulakan dengan nama panggilan dan kelas pada Tiket Pengembaraan."
+    },
+    {
+      "start": 30,
+      "end": 60,
+      "title": "Peta Ilmu",
+      "subtitle": "Perpustakaan Ajaib",
+      "narration_script": "Di Peta Ilmu, buka Kitab Ilmu Utama untuk mengenali maksud asas simpulan bahasa. Enam buku menyediakan makna ringkas dan ilustrasi. Murid boleh membuka, menutup dan mengezum gambar mengikut keperluan. Gunakan gambar sebagai rangsangan perbualan. Contoh penggunaan diteroka melalui situasi dan cerita dalam Loka. Audio guru tersedia apabila rakaman sebenar telah dimasukkan."
+    },
+    {
+      "start": 60,
+      "end": 85,
+      "title": "Roda Ferris",
+      "subtitle": "Pilih satu daripada enam Loka",
+      "narration_script": "Roda Ferris menghubungkan enam Loka dengan tarikan taman tema yang berbeza. Murid memilih gondola, kemudian avatar bergerak menaikinya sebelum perjalanan bermula. Mod Fokus dan pilihan Langkau Animasi memendekkan peralihan. Murid boleh memilih Loka yang belum selesai atau mengulangi Loka terdahulu."
+    },
+    {
+      "start": 85,
+      "end": 140,
+      "title": "Tiga Misi Pembelajaran",
+      "subtitle": "Studio Foto Air Muka",
+      "narration_script": "Loka Empat menggunakan Studio Foto Air Muka. Dalam Teroka Makna, bincangkan maruah atau harga diri Amir dan tindakan Sofia yang sopan. Seterusnya, murid menyusun empat foto secara seret dan lepas atau tekan dan pilih. Setelah susunan tepat, photobooth mencetak jalur foto. Dua semakan bahasa membantu murid memahami konteks. Teruskan ke Pentas Cerita. Murid menggunakan empat gambar untuk bercerita dengan simpulan bahasa air muka. Rakaman hanya bermula selepas butang dipilih dan izin mikrofon diberi. Hentikan, dengar semula atau rakam semula. Audio kekal sementara dalam pelayar. Guru juga boleh mendengar penceritaan secara langsung."
+    },
+    {
+      "start": 140,
+      "end": 170,
+      "title": "Sokongan Inklusif",
+      "subtitle": "Sokongan mengikut keperluan murid",
+      "narration_script": "Buka Mod Inklusif dan pilih sokongan yang sesuai. Tulisan besar, fon Andika, kontras tinggi, Mod Fokus dan Kurangkan Animasi membantu murid mengakses aktiviti. Mod Senyap mengawal main semula audio. Sokongan bukan penalti dan disediakan mengikut keperluan individu. Kekalkan masa yang mencukupi, arahan ringkas serta bimbingan guru."
+    },
+    {
+      "start": 170,
+      "end": 205,
+      "title": "Kenangan dan Pencapaian",
+      "subtitle": "Imbas Loka, Pasport dan Sijil",
+      "narration_script": "Imbas Kenangan membolehkan murid melihat semula empat gambar bagi setiap Loka. Konsert mengekalkan pautan lagu asal; mainkan hanya apabila sesuai dan jedakannya sebelum refleksi. Refleksi akhir terbuka selepas enam Loka unik selesai. Setiap Loka lengkap memberikan satu cop. Pasport menunjukkan kemajuan serta ganjaran. Sijil hanya tersedia selepas keenam-enam Loka selesai, tanpa bergantung pada penilaian guru atau refleksi."
+    },
+    {
+      "start": 205,
+      "end": 255,
+      "title": "Sudut Guru dan PBD",
+      "subtitle": "Evidens bahasa, bukan markah permainan",
+      "narration_script": "Sudut Guru menyediakan maklumat pengajaran, contoh RPH enam puluh minit, pembezaan, rubrik dan bahan boleh cetak. Guru boleh memilih satu atau beberapa Loka untuk satu sesi. Rekod kemajuan dilindungi oleh pengesahan pelayan. Dalam demonstrasi ini, semua rekod adalah rekaan dan menggunakan simulator, bukan Google Sheets sebenar. Objektif Satu merumus evidens item bahasa yang tersedia. Objektif Dua kekal Belum Dinilai sehingga guru mendengar penceritaan dan mengisi penilaian. Lengkapkan lima aspek rubrik, skor lisan serta ulasan. Skor permainan dan rubrik tidak menjana Tahap Penguasaan secara automatik."
+    },
+    {
+      "start": 255,
+      "end": 280,
+      "title": "Penutup",
+      "subtitle": "Belajar, bermain dan bercerita",
+      "narration_script": "Gunakan SimpulLoka secara fleksibel untuk membina kefahaman dan penceritaan yang santun. Mulakan dengan satu Loka yang sesuai, aktifkan sokongan inklusif dan dengarkan cerita murid. Semak kemajuan serta evidens bahasa secara berasingan. Video ini tanpa narasi; suara guru sebenar boleh ditambah kemudian. Selamat mengajar dan selamat mengembara bersama SimpulLoka."
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 8,
+      "text": "SimpulLoka V9.1 · Bahasa Melayu Tahun 3"
+    },
+    {
+      "start": 8,
+      "end": 18,
+      "text": "Teroka makna → susun empat gambar → bercerita dengan santun."
+    },
+    {
+      "start": 18,
+      "end": 30,
+      "text": "Gunakan nama panggilan dan kelas. Pilih avatar pada Tiket Pengembaraan."
+    },
+    {
+      "start": 30,
+      "end": 38,
+      "text": "Buka Kitab Ilmu Utama: simpulan bahasa membawa maksud khas."
+    },
+    {
+      "start": 38,
+      "end": 49,
+      "text": "Enam buku interaktif menyediakan makna ringkas dan ilustrasi."
+    },
+    {
+      "start": 49,
+      "end": 60,
+      "text": "Zum ilustrasi. Bincangkan penggunaan melalui situasi dalam Loka."
+    },
+    {
+      "start": 60,
+      "end": 69,
+      "text": "Enam gondola, enam simpulan bahasa. Pilih Loka yang sesuai."
+    },
+    {
+      "start": 69,
+      "end": 77,
+      "text": "Avatar menaiki gondola. Peralihan sebenar membuka Loka pilihan."
+    },
+    {
+      "start": 77,
+      "end": 85,
+      "text": "Langkau Animasi tersedia. Murid boleh mengulang Loka."
+    },
+    {
+      "start": 85,
+      "end": 95,
+      "text": "Misi 1 · Air muka bermaksud maruah atau harga diri seseorang."
+    },
+    {
+      "start": 95,
+      "end": 108,
+      "text": "Misi 2 · Susun empat foto. Seret atau pilih gambar, kemudian tekan slot."
+    },
+    {
+      "start": 108,
+      "end": 116,
+      "text": "Semak susunan. Photobooth mencetak jalur foto digital."
+    },
+    {
+      "start": 116,
+      "end": 122,
+      "text": "Renungkan tindakan Sofia yang menjaga maruah Amir."
+    },
+    {
+      "start": 122,
+      "end": 128,
+      "text": "Misi 3 · Gunakan jalur foto sebagai panduan bercerita."
+    },
+    {
+      "start": 128,
+      "end": 134,
+      "text": "Rakam → henti → main semula. Demonstrasi menggunakan mikrofon ujian pelayar."
+    },
+    {
+      "start": 134,
+      "end": 140,
+      "text": "Audio sementara dalam pelayar sahaja. Laluan lisan bersama guru turut tersedia."
+    },
+    {
+      "start": 140,
+      "end": 150,
+      "text": "Mod Inklusif: sesuaikan saiz tulisan dan fon mengikut keperluan."
+    },
+    {
+      "start": 150,
+      "end": 160,
+      "text": "Kontras tinggi dan Mod Fokus membantu mengurangkan gangguan."
+    },
+    {
+      "start": 160,
+      "end": 170,
+      "text": "Kurangkan Animasi dan Mod Senyap. Sokongan tidak menjadi penalti."
+    },
+    {
+      "start": 170,
+      "end": 180,
+      "text": "Imbas Kenangan: lihat semula empat gambar cerita setiap Loka."
+    },
+    {
+      "start": 180,
+      "end": 187,
+      "text": "Konsert menggunakan pautan Suno asal. Jeda tab luar sebelum refleksi."
+    },
+    {
+      "start": 187,
+      "end": 195,
+      "text": "Data demonstrasi: enam Loka lengkap untuk menunjukkan cop dan kelayakan."
+    },
+    {
+      "start": 195,
+      "end": 205,
+      "text": "Satu sijil selepas enam Loka unik. Refleksi bukan syarat sijil."
+    },
+    {
+      "start": 205,
+      "end": 216,
+      "text": "Sudut Guru: maklumat PdP, RPH, pembezaan, rubrik dan rekod."
+    },
+    {
+      "start": 216,
+      "end": 225,
+      "text": "Rubrik lisan ialah evidens utama. Skor rubrik bukan TP automatik."
+    },
+    {
+      "start": 225,
+      "end": 234,
+      "text": "DEMONSTRASI SAHAJA · data rekaan dan simulator; bukan sambungan Google sebenar."
+    },
+    {
+      "start": 234,
+      "end": 243,
+      "text": "Pilih murid dan Loka. Objektif 2 kekal Belum Dinilai sehingga guru menilai."
+    },
+    {
+      "start": 243,
+      "end": 255,
+      "text": "Isi rubrik, skor lisan dan ulasan berdasarkan penceritaan sebenar."
+    },
+    {
+      "start": 255,
+      "end": 265,
+      "text": "Pilih satu atau beberapa Loka mengikut masa dan keperluan kelas."
+    },
+    {
+      "start": 265,
+      "end": 274,
+      "text": "Bimbing murid. Dengarkan cerita. Gunakan pertimbangan profesional guru."
+    },
+    {
+      "start": 274,
+      "end": 280,
+      "text": "SimpulLoka · Belajar, bermain dan bercerita. Narasi guru boleh ditambah kemudian."
+    }
+  ]
+}

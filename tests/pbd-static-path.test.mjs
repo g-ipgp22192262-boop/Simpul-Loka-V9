@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {win32,posix,join} from 'node:path';
 import {mkdtemp,mkdir,writeFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
-import {resolveStaticPath,createPbdServer} from '../scripts/pbd-dev-server.mjs';
+import {resolveStaticPath,createPbdServer,parseMediaRange} from '../scripts/pbd-dev-server.mjs';
 
 for(const [name,paths,base] of [
  ['Windows',win32,String.raw`C:\SimpulLoka\dist`],
@@ -23,6 +23,7 @@ test('local HTTP serves homepage and static assets; encoded traversal cannot exp
   await writeFile(join(root,'dist','index.html'),'<title>SimpulLoka local test</title>');
   await writeFile(join(root,'dist','assets','app.js'),'console.log("static fixture");');
   await writeFile(join(root,'private.txt'),'must not be served');
+  await writeFile(join(root,'dist','assets','sample.mp4'),'0123456789');
   process.chdir(root);
   running=await createPbdServer({env:{},port:0});
   const origin=`http://127.0.0.1:${running.server.address().port}`;
@@ -31,9 +32,12 @@ test('local HTTP serves homepage and static assets; encoded traversal cannot exp
   const head=await fetch(origin+'/assets/app.js',{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');
   assert.equal((await fetch(origin+'/assets/missing.js')).status,404);
   assert.equal((await fetch(origin+'/%2e%2e%2fprivate.txt')).status,403);
+  const range=await fetch(origin+'/assets/sample.mp4',{headers:{Range:'bytes=2-5'}});assert.equal(range.status,206);assert.equal(range.headers.get('content-range'),'bytes 2-5/10');assert.equal(await range.text(),'2345');assert.equal((await fetch(origin+'/assets/sample.mp4',{headers:{Range:'bytes=12-'}})).status,416);
   const teacher=await fetch(origin+'/.netlify/functions/teacher-records');assert.equal((await teacher.json()).configured,false);
  }finally{
   if(running)await running.close();
   process.chdir(before);await rm(root,{recursive:true,force:true});
  }
 });
+
+test('media byte ranges validate closed/open/suffix ranges and reject unsafe input',()=>{assert.deepEqual(parseMediaRange('bytes=2-5',10),{start:2,end:5});assert.deepEqual(parseMediaRange('bytes=7-',10),{start:7,end:9});assert.deepEqual(parseMediaRange('bytes=-3',10),{start:7,end:9});assert.deepEqual(parseMediaRange('bytes=-99',10),{start:0,end:9});assert.deepEqual(parseMediaRange('bytes=2-99',10),{start:2,end:9});for(const value of ['bytes=-','bytes=10-','bytes=5-2','bytes=-0','bytes=0-1,3-4','bytes=999999999999999999999-','other=0-1'])assert.equal(parseMediaRange(value,10),null,value);assert.equal(parseMediaRange('bytes=0-',0),null);});
