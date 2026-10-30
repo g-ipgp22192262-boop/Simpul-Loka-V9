@@ -24,7 +24,9 @@
     "test:pbd": "node tests/pbd-browser.mjs",
     "test:v91": "node tests/v91-browser.mjs",
     "pbd:passcode": "node scripts/pbd-passcode.mjs",
-    "test:audio": "node tests/teacher-audio-browser.mjs"
+    "test:audio": "node tests/teacher-audio-browser.mjs",
+    "test:final": "node tests/final-polish-browser.mjs",
+    "test:video:narration": "node tests/video-narration.mjs"
   },
   "engines": {
     "node": ">=22"

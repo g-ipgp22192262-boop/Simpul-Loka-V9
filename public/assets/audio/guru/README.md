@@ -5,3 +5,5 @@
 Rujukan skrip utama: `docs/audio-guru/SKRIP_AKHIR_UNTUK_RAKAMAN.pdf`. Laporan semua 73 fail, status dan batas pengesahan: `docs/audio-guru/INTEGRASI_AUDIO_V9_1.md` dan `AUDIO_INTEGRATION_AUDIT.json`.
 
 Build menghasilkan manifest klip aplikasi, sumber perpustakaan dan narasi berasingan. Audio guru hanya selepas klik; izin mikrofon/rakaman murid menyekat playback guru. Audio murid kekal sementara, bukan aset dalam folder ini. Ujian teknikal playback bukan pengesahan pendengaran bagi perkataan/sebutan.
+
+Pusingan semakan akhir: enam MP3 maksud juga digunakan dalam Loka, tanpa TTS pada completion. Lapan narasi VIDEO ONLY telah dicampur ke MP4 panduan; ia tetap bukan mapping arahan Loka. Lihat `PENAMBAHBAIKAN_AKHIR_V9_1.md`.

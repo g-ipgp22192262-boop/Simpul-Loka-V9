@@ -1,3 +1,5 @@
+> Pusingan semakan manual terkini: lihat `PENAMBAHBAIKAN_AKHIR_V9_1.md`. Video kini mempunyai lapan narasi sebenar; audio maksud, navigasi dan completion telah diperhalusi. Inventori kekal 65 aplikasi + 8 video = 73 MP3.
+
 # Integrasi Audio SimpulLoka V9.1 — laporan pengesahan
 
 Sumber kod asas: `d42941498e079e94affdc68cb619f8679e44c508`. Rujukan skrip utama ialah `SKRIP_AKHIR_UNTUK_RAKAMAN.pdf`; catalog semasa mengikuti pindaan PDF, bukan gabungan teks lama.
@@ -23,7 +25,7 @@ Sumber kod asas: `d42941498e079e94affdc68cb619f8679e44c508`. Rujukan skrip utama
 
 - Isu Kitab Ilmu selesai: `kitab-ilmu.mp3` ditambah melalui lampiran berasingan, dimainkan hingga tamat pada kelajuan biasa melalui UI, dan ketujuh-tujuh audio Perpustakaan kini tersedia.
 - Jemputan umum pernah dicadangkan tetapi rakaman/nama yang diluluskan tidak dibekalkan; tiada audio lain digunakan sebagai pengganti.
-- V08 kira-kira 25.32 saat, melebihi slot video 25 saat sekitar 0.32 saat; perlu penyelarasan pada fasa penyuntingan, bukan pemotongan automatik.
+- V08 kini muat dalam slot melalui pelarasan tempo sekitar 2% dalam video sahaja; MP3 asal kekal tidak berubah.
 - `loka4-semak-ayat.mp3`: peak volumedetect dibundarkan kepada 0.0 dB. Ini bukan bukti clipping; semakan pendengaran manual diperlukan.
 - Ketepatan setiap perkataan, sebutan dan keselesaan bunyi belum disahkan melalui pendengaran manusia. Ujian playback bukan kelulusan kandungan rakaman.
 - Mikrofon perkakasan, Safari dan sambungan Google sebenar tidak diuji dalam tugas ini. Tiada deployment atau push dibuat.
@@ -46,7 +48,7 @@ Semua nama sumber berakhiran `.m4a`, dan nama asas yang sama digunakan untuk `.m
 | 8 | `babak-05-inklusif.mp3` | `public/assets/audio/guru/video-panduan/babak-05-inklusif.mp3` | 27.33 | FOUND / CONVERTED / VIDEO ONLY / PLAYBACK VERIFIED | — |
 | 9 | `babak-06-kenangan-pencapaian.mp3` | `public/assets/audio/guru/video-panduan/babak-06-kenangan-pencapaian.mp3` | 32.87 | FOUND / CONVERTED / VIDEO ONLY / PLAYBACK VERIFIED | — |
 | 10 | `babak-07-sudut-guru-pbd.mp3` | `public/assets/audio/guru/video-panduan/babak-07-sudut-guru-pbd.mp3` | 38.42 | FOUND / CONVERTED / VIDEO ONLY / PLAYBACK VERIFIED | — |
-| 11 | `babak-08-penutup.mp3` | `public/assets/audio/guru/video-panduan/babak-08-penutup.mp3` | 25.28 | FOUND / CONVERTED / VIDEO ONLY / PLAYBACK VERIFIED / ISSUE | Approximately 25.32 seconds versus original 25-second video slot; align during later video editing. Not trimmed. |
+| 11 | `babak-08-penutup.mp3` | `public/assets/audio/guru/video-panduan/babak-08-penutup.mp3` | 25.28 | FOUND / CONVERTED / VIDEO ONLY / PLAYBACK VERIFIED | Diselaraskan dalam video melalui tempo sekitar 2%; MP3 asal tidak diubah. |
 | 12 | `bersama-cuba-lagi.mp3` | `public/assets/audio/guru/bersama-cuba-lagi.mp3` | 8.64 | FOUND / CONVERTED / INTEGRATED / PLAYBACK VERIFIED / OPTIONAL | — |
 | 13 | `bersama-gambar-diperoleh.mp3` | `public/assets/audio/guru/bersama-gambar-diperoleh.mp3` | 7.61 | FOUND / CONVERTED / INTEGRATED / PLAYBACK VERIFIED / OPTIONAL | — |
 | 14 | `cakap-besar.mp3` | `public/assets/audio/guru/perpustakaan/cakap-besar.mp3` | 9.41 | FOUND / CONVERTED / INTEGRATED / PLAYBACK VERIFIED | — |
@@ -157,4 +159,4 @@ Bukti terperinci dan checksum sumber/MP3: `AUDIO_INTEGRATION_AUDIT.json`. Bukti 
 
 ## Penambahan Kitab Ilmu
 
-Mapping catalog sedia ada dikekalkan tanpa perubahan. Checksum semua 72 MP3 terdahulu tidak berubah. Ujian integrasi melaksanakan semula semua 64 mapping UI asal, ditambah Kitab Ilmu (65). Sumber asal: `/workspace/simpul-audio-originals/kitab-ilmu.m4a`. Kawalan sedia ada berlabel **Dengar suara cikgu**, tidak dinamakan semula kepada Dengar Arahan. Tiada commit, push atau deploy dilakukan.
+Mapping catalog sedia ada dikekalkan tanpa perubahan. Checksum semua 72 MP3 terdahulu tidak berubah. Ujian integrasi melaksanakan semula semua 64 mapping UI asal, ditambah Kitab Ilmu (65). Sumber asal: `/workspace/simpul-audio-originals/kitab-ilmu.m4a`. Kawalan sedia ada berlabel **Dengar suara cikgu**, tidak dinamakan semula kepada Dengar Arahan. Checkpoint ini untuk semakan manual sahaja; deployment Netlify memerlukan arahan berasingan.

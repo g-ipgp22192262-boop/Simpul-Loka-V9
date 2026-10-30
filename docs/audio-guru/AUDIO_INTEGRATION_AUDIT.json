@@ -10,8 +10,8 @@
     "Browser playback verified at accelerated speed, not a human review of pronunciation or script content.",
     "Microphone tests use real MediaRecorder with a synthetic browser microphone, not physical hardware.",
     "Live Google Sheets was not tested; backend code/configuration unchanged.",
-    "Video narration not mixed into existing MP4.",
-    "No commits, pushes or hosting deployments performed."
+    "All eight real narration clips are mixed into the guide; retained CC is descriptive, not a new verbatim transcript.",
+    "Final manual-review refinements are a review-branch checkpoint; Netlify deployment requires separate explicit approval."
   ],
   "test_results": {
     "node_tests": {
@@ -445,16 +445,14 @@
       "ui_mapping_verified": false,
       "decoded_duration": 25.278684807256237,
       "script_content_verified": false,
-      "issues": [
-        "Approximately 25.32 seconds versus original 25-second video slot; align during later video editing. Not trimmed."
-      ],
+      "issues": [],
       "status": [
         "FOUND",
         "CONVERTED",
         "VIDEO ONLY",
-        "PLAYBACK VERIFIED",
-        "ISSUE"
-      ]
+        "PLAYBACK VERIFIED"
+      ],
+      "issue_resolution": "Original MP3 unchanged. Narration mix uses tempo 1.020671 to fit the existing 25-second closing shot."
     },
     {
       "source": "bersama-cuba-lagi.m4a",
@@ -2436,5 +2434,405 @@
     "normal_speed_playback": true,
     "test_file": "tests/kitab-ilmu-browser.mjs",
     "note": "Existing library mapping and Dengar suara cikgu control used without redesign or new playback logic."
+  },
+  "manual_review_round": {
+    "base_commit": "5c6caa34163174826af7023b375568b8ee221015",
+    "app_ui_audio": 65,
+    "video_narration": 8,
+    "total_mp3": 73,
+    "source_mp3s_unchanged": true,
+    "browser": {
+      "errors": [],
+      "definitions": [
+        "dalam-tangan",
+        "ambil-hati",
+        "anak-emas",
+        "air-muka",
+        "mandi-peluh",
+        "cakap-besar"
+      ],
+      "navigationWidths": [
+        1366,
+        768,
+        390,
+        320
+      ],
+      "videoChapters": [
+        "V01",
+        "V02",
+        "V03",
+        "V04",
+        "V05",
+        "V06",
+        "V07",
+        "V08"
+      ],
+      "progressPreserved": true,
+      "loka5NoTts": true,
+      "loka6Cta": true,
+      "delayedCompletionCta": true
+    },
+    "video": {
+      "narrated": true,
+      "videoOnly": true,
+      "duration": 280,
+      "source_video_sha256": "c329926c36340af251c73a5748ec314cf2e198c0c828f7a327fa9cd5be20b2ab",
+      "video_sha256": "293d5b0b17ef0979db1abaeefb0a8be30f7d37d1a6ed04aad7ee0d7e5ba891d2",
+      "source_video_stream_hash": "SHA256=b37eeed24b3f4f340414106f33c6c0abfabb681e163afd9ddb718fcc1a1e53d1",
+      "video_stream_hash": "SHA256=2198e47e2d77ea27fc58f605b10dd4a1f7720f4fbe13eb55c0e4cfbdb12e0dc0",
+      "footer_updated": true,
+      "demonstration_area": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 948
+      },
+      "chapters": [
+        {
+          "id": "V01",
+          "path": "assets/audio/guru/video-panduan/babak-01-pengenalan.mp3",
+          "start": 0,
+          "end": 30,
+          "source_duration": 28.05551,
+          "tempo": 1.0,
+          "source_sha256": "57a83340aa66d458acbd80b036fe6ffb4cb958a6194b06935e2229586843a483"
+        },
+        {
+          "id": "V02",
+          "path": "assets/audio/guru/video-panduan/babak-02-peta-ilmu.mp3",
+          "start": 30,
+          "end": 60,
+          "source_duration": 22.752653,
+          "tempo": 1.0,
+          "source_sha256": "eb180d94cd7337ea7518e122149922ef282f6b7656365e7717c1a04aac6c6ce3"
+        },
+        {
+          "id": "V03",
+          "path": "assets/audio/guru/video-panduan/babak-03-roda-ferris.mp3",
+          "start": 60,
+          "end": 85,
+          "source_duration": 23.353469,
+          "tempo": 1.0,
+          "source_sha256": "2bfde4243305ef5696b5c81996a88a1eb647a9e343c4435a1badb55cff7533d2"
+        },
+        {
+          "id": "V04",
+          "path": "assets/audio/guru/video-panduan/babak-04-tiga-misi.mp3",
+          "start": 85,
+          "end": 140,
+          "source_duration": 48.796735,
+          "tempo": 1.0,
+          "source_sha256": "a8c656fdc8efea2f081c5ff92eeedc3611038750c14f45ec308dad67a3a7240c"
+        },
+        {
+          "id": "V05",
+          "path": "assets/audio/guru/video-panduan/babak-05-inklusif.mp3",
+          "start": 140,
+          "end": 170,
+          "source_duration": 27.376327,
+          "tempo": 1.0,
+          "source_sha256": "3d70e5759aa050fe90e7d676177fd5be68b6c1e6d4b7d821775a50667ea6761a"
+        },
+        {
+          "id": "V06",
+          "path": "assets/audio/guru/video-panduan/babak-06-kenangan-pencapaian.mp3",
+          "start": 170,
+          "end": 205,
+          "source_duration": 32.914286,
+          "tempo": 1.0,
+          "source_sha256": "4fb7ad6f2a48103e0987caed52d5f4b0049394078e7eb4f42f476cf4ba97aac0"
+        },
+        {
+          "id": "V07",
+          "path": "assets/audio/guru/video-panduan/babak-07-sudut-guru-pbd.mp3",
+          "start": 205,
+          "end": 255,
+          "source_duration": 38.452245,
+          "tempo": 1.0,
+          "source_sha256": "b67a7feaa4ffa1356b301d1d013ca9f3bd53648b26c1c9e1944328ab1785940f"
+        },
+        {
+          "id": "V08",
+          "path": "assets/audio/guru/video-panduan/babak-08-penutup.mp3",
+          "start": 255,
+          "end": 280,
+          "source_duration": 25.312653,
+          "tempo": 1.0206714919354838,
+          "source_sha256": "f4bb773d1b810ed9c2983d3fdaa9f0ededf6b70e7db6459144dfc379b0ad5e25"
+        }
+      ],
+      "source_video_git_blob": "4ca821f7b76a83673cbc2c5047643791334bb3e7"
+    },
+    "narration_verification": {
+      "duration": 280,
+      "footerUpdated": true,
+      "demonstrationFrames": [
+        {
+          "time": 2,
+          "mae": 0.36217475386779185,
+          "psnr": 51.96021375936715
+        },
+        {
+          "time": 32,
+          "mae": 0.2623681434599156,
+          "psnr": 53.586992229734875
+        },
+        {
+          "time": 62,
+          "mae": 0.24376758087201125,
+          "psnr": 53.467691950868684
+        },
+        {
+          "time": 87,
+          "mae": 0.2944268635724332,
+          "psnr": 52.870065813418925
+        },
+        {
+          "time": 142,
+          "mae": 0.17318917018284108,
+          "psnr": 54.39866933839892
+        },
+        {
+          "time": 172,
+          "mae": 0.26752812939521803,
+          "psnr": 53.16085550362218
+        },
+        {
+          "time": 207,
+          "mae": 0.2442598452883263,
+          "psnr": 53.58886996995765
+        },
+        {
+          "time": 257,
+          "mae": 0.3649701125175809,
+          "psnr": 51.89178926070856
+        },
+        {
+          "time": 277,
+          "mae": 0.3357243319268636,
+          "psnr": 52.25637008874347
+        }
+      ],
+      "chapters": [
+        {
+          "id": "V01",
+          "start": 0,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.9937400302395424,
+              "offsetSeconds": 0
+            },
+            {
+              "correlation": 0.9764218120284314,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.9812438538098149,
+              "offsetSeconds": -0.004
+            }
+          ]
+        },
+        {
+          "id": "V02",
+          "start": 30,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.9797155366301099,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.981880669520603,
+              "offsetSeconds": -0.004
+            },
+            {
+              "correlation": 0.9680502644551224,
+              "offsetSeconds": -0.008
+            }
+          ]
+        },
+        {
+          "id": "V03",
+          "start": 60,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.990102248846741,
+              "offsetSeconds": 0
+            },
+            {
+              "correlation": 0.9866993035793094,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.9878522030797253,
+              "offsetSeconds": -0.002
+            }
+          ]
+        },
+        {
+          "id": "V04",
+          "start": 85,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.984248090115445,
+              "offsetSeconds": 0.004
+            },
+            {
+              "correlation": 0.9868394037662119,
+              "offsetSeconds": 0.002
+            },
+            {
+              "correlation": 0.9867980471563509,
+              "offsetSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": "V05",
+          "start": 140,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.9899980945369949,
+              "offsetSeconds": 0.004
+            },
+            {
+              "correlation": 0.982156088625112,
+              "offsetSeconds": 0
+            },
+            {
+              "correlation": 0.9815933970072057,
+              "offsetSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": "V06",
+          "start": 170,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.9895186830345699,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.971767927712815,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.9689874278958511,
+              "offsetSeconds": -0.002
+            }
+          ]
+        },
+        {
+          "id": "V07",
+          "start": 205,
+          "tempo": 1,
+          "windows": [
+            {
+              "correlation": 0.9901731141178909,
+              "offsetSeconds": 0
+            },
+            {
+              "correlation": 0.9800443250906188,
+              "offsetSeconds": -0.002
+            },
+            {
+              "correlation": 0.9853972248460813,
+              "offsetSeconds": 0.002
+            }
+          ]
+        },
+        {
+          "id": "V08",
+          "start": 255,
+          "tempo": 1.0206714919354838,
+          "windows": [
+            {
+              "correlation": 0.9734230991963746,
+              "offsetSeconds": 0.002
+            },
+            {
+              "correlation": 0.9614246446376338,
+              "offsetSeconds": 0.002
+            },
+            {
+              "correlation": 0.9682477166710299,
+              "offsetSeconds": 0.002
+            }
+          ]
+        }
+      ]
+    },
+    "regressions": [
+      {
+        "suite": "loka-one",
+        "exit": 0,
+        "seconds": 21.533,
+        "log": "/tmp/simpul-polish-loka-one.log"
+      },
+      {
+        "suite": "loka-two",
+        "exit": 0,
+        "seconds": 65.596,
+        "log": "/tmp/simpul-polish-loka-two.log"
+      },
+      {
+        "suite": "loka-three",
+        "exit": 0,
+        "seconds": 74.549,
+        "log": "/tmp/simpul-polish-loka-three.log"
+      },
+      {
+        "suite": "loka-four",
+        "exit": 0,
+        "seconds": 18.042,
+        "log": "/tmp/simpul-polish-loka-four.log"
+      },
+      {
+        "suite": "loka-five",
+        "exit": 0,
+        "seconds": 96.243,
+        "log": "/tmp/simpul-polish-loka-five.log"
+      },
+      {
+        "suite": "loka-six",
+        "exit": 0,
+        "seconds": 63.05,
+        "log": "/tmp/simpul-polish-loka-six.log"
+      },
+      {
+        "suite": "loka-four-recording",
+        "exit": 0,
+        "seconds": 8.48,
+        "log": "/tmp/simpul-polish-loka-four-recording.log"
+      },
+      {
+        "suite": "v91",
+        "exit": 0,
+        "seconds": 16.985,
+        "log": "/tmp/simpul-polish-v91.log"
+      },
+      {
+        "suite": "teacher-guide-video",
+        "exit": 0,
+        "seconds": 3.131,
+        "log": "/tmp/simpul-polish-teacher-guide-video.log"
+      }
+    ],
+    "node_tests": {
+      "passed": 33,
+      "failed": 0
+    },
+    "notes": [
+      "Loka 5 introduction is text-only because its existing Misi 1 files are questions, not a general welcome.",
+      "Existing teacher freedom to enter any Loka after ticket registration is preserved; within-Loka mission locks unchanged.",
+      "Loka 6 early completion routes to memories; final reflection/congratulations remain gated by six unique completed Loka.",
+      "Immediate Loka 6 CTA waits for completion synchronization; stale saves cannot navigate away after the pupil changes page."
+    ]
   }
 }

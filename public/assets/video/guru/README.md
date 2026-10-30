@@ -1,3 +1,5 @@
+> Video semasa: 4:40 dengan 8 narasi sebenar, CC Bahasa Melayu dan footer terkini. `narration.json` merekodkan sumber/offset/tempo. Nota tanpa narasi di bawah merujuk sejarah rakaman asas.
+
 # Video panduan guru SimpulLoka V9.1
 
 - `panduan-simpulloka.mp4`: rakaman interaksi aplikasi sebenar, H.264, 1920×1080, 25 fps, 4:40. Tanpa narasi dan tanpa trek audio.

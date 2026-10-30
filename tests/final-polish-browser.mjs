@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {createPbdServer} from '../scripts/pbd-dev-server.mjs';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+const server=await createPbdServer({env:{},port:4196});
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--no-sandbox']});
+const result={errors:[],definitions:[],navigationWidths:[],videoChapters:[],progressPreserved:false,loka5NoTts:false,loka6Cta:false};
+await mkdir('work/final-polish',{recursive:true});
+const c=await browser.newContext({viewport:{width:1366,height:900}});
+await c.addInitScript(()=>{window.finalTtsCalls=[];const speak=speechSynthesis.speak.bind(speechSynthesis);speechSynthesis.speak=u=>{finalTtsCalls.push(u.text);return speak(u);};const Native=Audio;window.finalMedia=[];window.Audio=function(...args){const a=new Native(...args);finalMedia.push(a);return a;};window.Audio.prototype=Native.prototype;});
+const p=await c.newPage();p.on('pageerror',e=>result.errors.push(e.message));
+const ids=['dalam-tangan','ambil-hati','anak-emas','air-muka','mandi-peluh','cakap-besar'];
+async function audible(id){await p.waitForFunction(id=>TeacherAudio.state().id===id&&TeacherAudio.state().time>.03,id);assert(await p.evaluate(id=>finalMedia.at(-1).src.endsWith('/'+id+'.mp3'),id));await p.evaluate(()=>TeacherAudio.stop());}
+async function seedStage(n){await p.evaluate(n=>{localStorage.setItem(`simpulloka_v9_loka${n}_${SimpulBackend.mode}_${session.studentId}`,JSON.stringify({meaning:true,ordered:true,photoPrinted:true,photoCheck:2,collected:[0,1,2,3],order:[0,1,2,3],gift:1,reason:true,packStep:4,told:false,finished:false}));enterLoka(n-1);[LokaOne,LokaTwo,LokaThree,LokaFour,LokaFive,LokaSix][n-1].go(2);},n);await p.locator(`#l${n}Oral`).waitFor();}
+try{
+ await p.goto(server.origin);await p.evaluate(()=>navTo('wheel'));assert.equal(await p.locator('#lokaNav button:disabled').count(),6);await p.evaluate(()=>navTo('home'));
+ await p.locator('#nickname').fill('Semakan Final');await p.locator('#kelas').fill('3 Ujian');await p.locator('#kelas').press('Enter');await p.locator('#libraryTitle').waitFor();await p.evaluate(()=>{setPref('reduce',true);navTo('wheel');});
+ for(const width of [1366,768,390,320]){
+  await p.setViewportSize({width,height:1000});
+  for(let i=0;i<6;i++){
+   await p.locator(`[data-loka-link="${i}"]`).click();assert.equal(await p.locator('#lokaNav [aria-current="page"]').getAttribute('data-loka-link'),String(i));assert.equal(await p.locator('#nav button').count(),6);
+   const intro=p.locator(`[data-loka-intro="${i+1}"]`);assert(await intro.isVisible());assert.match(await intro.textContent(),/Apa kita akan buat/);assert.match(await intro.textContent(),/Pentas Cerita/);assert((await intro.textContent()).toLowerCase().includes(ids[i].replaceAll('-',' ')));
+   if(i!==4){await intro.locator('button').click();await audible(`loka${i+1}-misi1`);}else assert.equal(await intro.locator('button').count(),0,'Loka 5 has question recordings, not an invented welcome recording');
+   if(i>=2)await p.locator(`#l${i+1}Enter`).click();
+   await p.locator(`[data-audio-clip="${ids[i]}"]`).click();await audible(ids[i]);
+   assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`overflow ${width} L${i+1}`);
+   if(width===390&&[0,3,5].includes(i))await p.screenshot({path:`work/final-polish/loka${i+1}-phone.png`,fullPage:true});
+   if(width===1366&&i===3)await p.screenshot({path:'work/final-polish/loka4-desktop.png',fullPage:true});
+  }
+  result.navigationWidths.push(width);
+ }
+ result.definitions=ids;
+ await p.locator('[data-loka-link="0"]').click();await p.locator('[data-answer="0"]').click();await p.waitForFunction(()=>JSON.parse(localStorage.getItem(`simpulloka_v9_loka1_${SimpulBackend.mode}_${session.studentId}`))?.meaning===true);
+ const pupil=await p.evaluate(()=>session.studentId);const saved=await p.evaluate(()=>JSON.stringify(progress[1]));await p.locator('[data-loka-link="4"]').click();await p.locator('[data-loka-link="0"]').click();assert.equal(await p.evaluate(()=>JSON.stringify(progress[1])),saved);assert.equal(await p.evaluate(()=>session.studentId),pupil);assert(await p.locator('#l1NextMission').isEnabled());
+ await p.reload();await p.waitForFunction(()=>session&&JSON.parse(localStorage.getItem(`simpulloka_v9_loka1_${SimpulBackend.mode}_${session.studentId}`))?.meaning===true);await p.evaluate(()=>navTo('wheel'));await p.locator('[data-loka-link="0"]').click();assert(await p.locator('#l1NextMission').isEnabled());result.progressPreserved=true;
+ // No unapproved fallback on any modern Loka, even if a legacy speech caller is invoked.
+ for(let i=0;i<6;i++){await p.locator(`[data-loka-link="${i}"]`).click();await p.evaluate(()=>TeacherAudio.say('Ujian teks sahaja tanpa rakaman'));}assert.deepEqual(await p.evaluate(()=>finalTtsCalls),[]);assert(!/Bacaan pelayar digunakan/.test(await p.locator('#toast').textContent()));
+ await seedStage(5);await p.evaluate(()=>{setPref('reduce',false);setPref('focus',false);});await p.locator('#l5Oral').check();await p.locator('#l5Finish').click();await p.locator('#l5Skip').waitFor();await p.evaluate(()=>LokaFive.instructions());assert.equal(await p.locator('#lokaFive .l2-mission-title .l2-audio').count(),0);assert.deepEqual(await p.evaluate(()=>finalTtsCalls),[]);assert(!/Bacaan pelayar digunakan/.test(await p.locator('#toast').textContent()));await p.locator('#l5Skip').click();await p.waitForFunction(()=>progress[5]?.completed===true);assert.equal(await p.evaluate(()=>page),'loka');result.loka5NoTts=true;
+ await p.evaluate(()=>setPref('reduce',true));await seedStage(6);assert.equal(await p.locator('#l6ToImbas').count(),0);await p.locator('#l6Oral').check();await p.locator('#l6Finish').click();await p.waitForFunction(()=>progress[6]?.completed===true);await p.locator('#l6ToImbas').waitFor();assert.equal(await p.evaluate(()=>page),'loka');assert.equal(await p.locator('[data-audio-clip="grand-finale-tahniah"]').count(),0);await p.locator('#l6ToImbas').click();await p.getByRole('heading',{name:'Imbas Kenangan',exact:true}).waitFor();assert(await p.getByRole('button',{name:'Refleksi Akhir',exact:true}).isDisabled());
+ // A fresh pupil completes Loka 6 last: CTA copy/audio must refresh after async progress ack.
+ await p.evaluate(()=>{session=null;progress={};localStorage.removeItem(SimpulBackend.sessionKey);navTo('home');});await p.locator('#nickname').fill('Enam Lengkap');await p.locator('#kelas').fill('3 Ujian');await p.locator('#kelas').press('Enter');await p.locator('#libraryTitle').waitFor();await p.evaluate(async()=>{setPref('reduce',true);for(const n of [1,2,3,4,5])progress[n]=await call('saveProgress',session.studentId,session.token,n,1,0,true,true,true);});await seedStage(6);await p.locator('#l6Oral').check();await p.locator('#l6Finish').click();await p.waitForFunction(()=>progress[6]?.completed===true);await p.evaluate(()=>LokaSixFinal.close());await p.getByText('Jom lihat kenangan dan buat refleksi akhir.',{exact:true}).waitFor();
+ await p.locator('[data-audio-clip="grand-finale-tahniah"]').click();await audible('grand-finale-tahniah');await p.locator('#l6ToImbas').click();await p.locator('#ilStart').waitFor();assert.equal(await p.evaluate(()=>page),'imbas');result.loka6Cta=true;
+ assert.deepEqual(await p.evaluate(()=>finalTtsCalls),[]);
+ // An immediate CTA click waits for a real delayed progress save, rather than leaving reflection locked.
+ await p.evaluate(()=>{session=null;progress={};localStorage.removeItem(SimpulBackend.sessionKey);navTo('home');});await p.locator('#nickname').fill('Simpan Lewat');await p.locator('#kelas').fill('3 Ujian');await p.locator('#kelas').press('Enter');await p.locator('#libraryTitle').waitFor();await p.evaluate(async()=>{setPref('reduce',true);for(const n of [1,2,3,4,5])progress[n]=await call('saveProgress',session.studentId,session.token,n,1,0,true,true,true);});await seedStage(6);
+ await p.evaluate(()=>{window.finalRealCall=call;window.finalPendingSaves=[];call=(fn,...args)=>fn==='saveProgress'&&args[2]===6?new Promise((resolve,reject)=>finalPendingSaves.push(()=>finalRealCall(fn,...args).then(resolve,reject))):finalRealCall(fn,...args);});await p.locator('#l6Oral').check();await p.locator('#l6Finish').click();await p.locator('#l6ToImbas').waitFor();await p.locator('#l6ToImbas').click();await p.waitForFunction(()=>finalPendingSaves.length>=2);assert.equal(await p.evaluate(()=>page),'loka');await p.evaluate(()=>{call=finalRealCall;finalPendingSaves.splice(0).forEach(release=>release());});await p.locator('#ilStart').waitFor();assert.equal(await p.evaluate(()=>LokaRewards.count()),6);result.delayedCompletionCta=true;
+ // Detect real decoded audio energy from the narrated video at all eight chapter offsets.
+ await p.evaluate(()=>{navTo('teacher');SudutGuru.open('video');});await p.waitForFunction(()=>document.querySelector('#sgGuideVideo')?.src.endsWith('panduan-simpulloka.mp4'));
+ assert.match(await p.locator('#sgVideoStatus').textContent(),/dengan narasi sebenar Cikgu Danea/);assert(!/tanpa narasi/i.test(await p.locator('#sudutGuru').textContent()));
+ const video=p.locator('#sgGuideVideo');assert(await video.evaluate(v=>v.paused&&!v.autoplay));await p.locator('.access').click();await p.locator('.access').click();
+ await p.evaluate(async()=>{window.finalAudioContext=new AudioContext();await finalAudioContext.resume();const v=document.querySelector('#sgGuideVideo');window.finalAnalyser=finalAudioContext.createAnalyser();finalAnalyser.fftSize=2048;finalAudioContext.createMediaElementSource(v).connect(finalAnalyser);finalAnalyser.connect(finalAudioContext.destination);window.finalAudioBuffer=new Float32Array(finalAnalyser.fftSize);});
+ const narration=JSON.parse(await readFile('public/assets/video/guru/narration.json','utf8'));
+ for(const ch of narration.chapters){await video.evaluate((v,t)=>{v.pause();v.currentTime=t;},ch.start+2);await video.evaluate(v=>v.play());await p.waitForFunction(()=>{finalAnalyser.getFloatTimeDomainData(finalAudioBuffer);return Math.sqrt(finalAudioBuffer.reduce((s,x)=>s+x*x,0)/finalAudioBuffer.length)>.002;});const t=await video.evaluate(v=>v.currentTime);assert(t>=ch.start&&t<ch.end);result.videoChapters.push(ch.id);await video.evaluate(v=>v.pause());}
+ assert.equal(await video.locator('track').count(),1);await video.evaluate(v=>{v.textTracks[0].mode='showing';});await p.waitForFunction(()=>document.querySelector('#sgGuideVideo').textTracks[0].cues?.length>20);
+ await video.evaluate(v=>v.play());await p.evaluate(()=>setPref('silent',true));assert(await video.evaluate(v=>v.paused&&v.muted));await video.evaluate(v=>{v.muted=false;});await p.waitForFunction(()=>document.querySelector('#sgGuideVideo').muted);await p.evaluate(()=>setPref('silent',false));assert(await video.evaluate(v=>v.paused));await video.evaluate(v=>v.play());await p.evaluate(()=>navTo('wheel'));assert(await p.evaluate(()=>!document.querySelector('#sgGuideVideo')));
+ assert.deepEqual(result.errors,[]);console.log('PASS final review: 6 definition MP3s, 6 intros, navigation/active/locks/persistence at 320–1366px; no Loka TTS; L5 text-only completion; L6 gated CTA; 8 decoded video narration chapters, CC, silence and navigation; 0 pageerrors.');
+}finally{await writeFile('work/final-polish/browser-results.json',JSON.stringify(result,null,2));await browser.close();await server.close();}

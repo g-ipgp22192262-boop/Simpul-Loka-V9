@@ -1,3 +1,5 @@
+> Versi semasa telah mempunyai lapan narasi sebenar Cikgu Danea. Nota tanpa narasi di bawah ialah sejarah rakaman asal. Lihat `public/assets/video/guru/narration.json` dan `docs/audio-guru/PENAMBAHBAIKAN_AKHIR_V9_1.md`. Untuk penjanaan semula, guna `python scripts/mix-teacher-narration.py <video-asal>` selepas render asas.
+
 # Bahan panduan guru SimpulLoka V9.1
 
 Hasil utama: `public/assets/video/guru/panduan-simpulloka.mp4`.

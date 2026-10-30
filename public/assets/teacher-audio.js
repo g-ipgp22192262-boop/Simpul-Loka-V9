@@ -22,7 +22,7 @@ const TeacherAudio=(()=>{
   catch{if(token===generation){stop();notify('Audio belum dapat dimainkan. Tekan butang untuk cuba lagi.');}return false;}
  }
  // Unrelated legacy/dynamic text retains labelled browser reading, without prefix matching.
- function say(text){if(!permitted())return;stop();pauseMedia();if(!String(text||'').trim())return;if(!('speechSynthesis'in window))return notify('Bacaan pelayar tidak disokong. Gunakan arahan bertulis.');notify('Bacaan pelayar digunakan; ini bukan rakaman suara cikgu.');const u=new SpeechSynthesisUtterance(String(text));u.lang='ms-MY';u.rate=.82;speechSynthesis.speak(u);}
+ function say(text){if(typeof page!=='undefined'&&page==='loka'){stop();return;}if(!permitted())return;stop();pauseMedia();if(!String(text||'').trim())return;if(!('speechSynthesis'in window))return notify('Bacaan pelayar tidak disokong. Gunakan arahan bertulis.');notify('Bacaan pelayar digunakan; ini bukan rakaman suara cikgu.');const u=new SpeechSynthesisUtterance(String(text));u.lang='ms-MY';u.rate=.82;speechSynthesis.speak(u);}
  function button(id,label='Dengar Arahan'){if(!TeacherAudioCatalog.some(x=>x.id===id&&!x.legacy))return '';return `<button type="button" class="l2-audio" data-teacher-audio data-audio-clip="${id}" onclick="TeacherAudio.play('${id}')" ${silent()||recorders.size?'disabled':''}>${label}</button>`;}
  document.addEventListener('click',event=>{if(event.target.closest('[id$="Record"],[id$="StartRecord"],[id$="Listen"],[id$="Again"]'))stop();},true);
  document.addEventListener('play',event=>{if(event.target instanceof HTMLMediaElement){stop();document.querySelectorAll('audio,video').forEach(other=>{if(other!==event.target)other.pause();});}},true);

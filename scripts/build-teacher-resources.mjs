@@ -1,3 +1,4 @@
+import {createHash} from 'node:crypto';
 import {readFile,writeFile,mkdir,stat} from 'node:fs/promises';import vm from 'node:vm';
 const ctx=vm.createContext({});for(const f of ['sudut-guru-data.js','sudut-guru-content.js','teacher-audio-catalog.js'])vm.runInContext(await readFile('public/assets/'+f,'utf8'),ctx);
 await mkdir('dist/assets/downloads',{recursive:true});
@@ -18,5 +19,6 @@ try{captions=(await readFile('public/assets/video/guru/panduan-simpulloka.ms.vtt
 const narrationNames=['babak-01-pengenalan','babak-02-peta-ilmu','babak-03-roda-ferris','babak-04-tiga-misi','babak-05-inklusif','babak-06-kenangan-pencapaian','babak-07-sudut-guru-pbd','babak-08-penutup'];
 const narration=[];for(const name of narrationNames){const path=`assets/audio/guru/video-panduan/${name}.mp3`;try{const data=await readFile('public/'+path);if(data.length>128&&(data.toString('ascii',0,3)==='ID3'||data[0]===255&&(data[1]&224)===224))narration.push(path);}catch{}}
 await mkdir('dist/assets/audio/guru/video-panduan',{recursive:true});await writeFile('dist/assets/audio/guru/video-panduan/manifest.json',JSON.stringify({videoOnly:true,available:narration}));
-await mkdir('dist/assets/video/guru',{recursive:true});await writeFile('dist/assets/video/guru/manifest.json',JSON.stringify({available:video,captions:video&&captions}));
+let narrated=false;try{const m=JSON.parse(await readFile('public/assets/video/guru/narration.json','utf8'));narrated=video&&narration.length===8&&m.narrated===true&&m.chapters?.length===8&&m.video_sha256===createHash('sha256').update(await readFile('public/assets/video/guru/panduan-simpulloka.mp4')).digest('hex');}catch{}
+await mkdir('dist/assets/video/guru',{recursive:true});await writeFile('dist/assets/video/guru/manifest.json',JSON.stringify({available:video,captions:video&&captions,narrated}));
 console.log('Teacher resources: 6 standalone printable HTML downloads;',available.length,'real MP3 files; video',video?'present':'pending');

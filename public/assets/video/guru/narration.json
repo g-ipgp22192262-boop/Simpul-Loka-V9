@@ -1,0 +1,91 @@
+{
+  "narrated": true,
+  "videoOnly": true,
+  "duration": 280,
+  "source_video_sha256": "c329926c36340af251c73a5748ec314cf2e198c0c828f7a327fa9cd5be20b2ab",
+  "video_sha256": "293d5b0b17ef0979db1abaeefb0a8be30f7d37d1a6ed04aad7ee0d7e5ba891d2",
+  "source_video_stream_hash": "SHA256=b37eeed24b3f4f340414106f33c6c0abfabb681e163afd9ddb718fcc1a1e53d1",
+  "video_stream_hash": "SHA256=2198e47e2d77ea27fc58f605b10dd4a1f7720f4fbe13eb55c0e4cfbdb12e0dc0",
+  "footer_updated": true,
+  "demonstration_area": {
+    "x": 0,
+    "y": 0,
+    "width": 1920,
+    "height": 948
+  },
+  "chapters": [
+    {
+      "id": "V01",
+      "path": "assets/audio/guru/video-panduan/babak-01-pengenalan.mp3",
+      "start": 0,
+      "end": 30,
+      "source_duration": 28.05551,
+      "tempo": 1.0,
+      "source_sha256": "57a83340aa66d458acbd80b036fe6ffb4cb958a6194b06935e2229586843a483"
+    },
+    {
+      "id": "V02",
+      "path": "assets/audio/guru/video-panduan/babak-02-peta-ilmu.mp3",
+      "start": 30,
+      "end": 60,
+      "source_duration": 22.752653,
+      "tempo": 1.0,
+      "source_sha256": "eb180d94cd7337ea7518e122149922ef282f6b7656365e7717c1a04aac6c6ce3"
+    },
+    {
+      "id": "V03",
+      "path": "assets/audio/guru/video-panduan/babak-03-roda-ferris.mp3",
+      "start": 60,
+      "end": 85,
+      "source_duration": 23.353469,
+      "tempo": 1.0,
+      "source_sha256": "2bfde4243305ef5696b5c81996a88a1eb647a9e343c4435a1badb55cff7533d2"
+    },
+    {
+      "id": "V04",
+      "path": "assets/audio/guru/video-panduan/babak-04-tiga-misi.mp3",
+      "start": 85,
+      "end": 140,
+      "source_duration": 48.796735,
+      "tempo": 1.0,
+      "source_sha256": "a8c656fdc8efea2f081c5ff92eeedc3611038750c14f45ec308dad67a3a7240c"
+    },
+    {
+      "id": "V05",
+      "path": "assets/audio/guru/video-panduan/babak-05-inklusif.mp3",
+      "start": 140,
+      "end": 170,
+      "source_duration": 27.376327,
+      "tempo": 1.0,
+      "source_sha256": "3d70e5759aa050fe90e7d676177fd5be68b6c1e6d4b7d821775a50667ea6761a"
+    },
+    {
+      "id": "V06",
+      "path": "assets/audio/guru/video-panduan/babak-06-kenangan-pencapaian.mp3",
+      "start": 170,
+      "end": 205,
+      "source_duration": 32.914286,
+      "tempo": 1.0,
+      "source_sha256": "4fb7ad6f2a48103e0987caed52d5f4b0049394078e7eb4f42f476cf4ba97aac0"
+    },
+    {
+      "id": "V07",
+      "path": "assets/audio/guru/video-panduan/babak-07-sudut-guru-pbd.mp3",
+      "start": 205,
+      "end": 255,
+      "source_duration": 38.452245,
+      "tempo": 1.0,
+      "source_sha256": "b67a7feaa4ffa1356b301d1d013ca9f3bd53648b26c1c9e1944328ab1785940f"
+    },
+    {
+      "id": "V08",
+      "path": "assets/audio/guru/video-panduan/babak-08-penutup.mp3",
+      "start": 255,
+      "end": 280,
+      "source_duration": 25.312653,
+      "tempo": 1.0206714919354838,
+      "source_sha256": "f4bb773d1b810ed9c2983d3fdaa9f0ededf6b70e7db6459144dfc379b0ad5e25"
+    }
+  ],
+  "source_video_git_blob": "4ca821f7b76a83673cbc2c5047643791334bb3e7"
+}
