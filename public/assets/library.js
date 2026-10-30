@@ -25,7 +25,7 @@ const MagicLibrary=(()=>{
     loadVisits();
     return `<section id="magicLibrary" class="library-scene" aria-labelledby="libraryTitle">
       <img class="library-background" src="${imageRoot}library-interior.png" alt="" width="1536" height="1024" fetchpriority="high">
-      <div class="library-heading"><span>PETA ILMU SIMPULAN BAHASA</span><h1 id="libraryTitle">Perpustakaan <em>Ajaib</em></h1><p>Satu buku dibuka, satu makna ditemukan.</p></div>
+      <div class="library-heading"><span>PETA ILMU SIMPULAN BAHASA</span><h1 id="libraryTitle">Perpustakaan <em>Ajaib</em></h1><p>Satu buku dibuka, satu makna ditemukan.</p>${TeacherAudio.button('perpustakaan-pengenalan','Dengar Panduan Perpustakaan')}</div>
       <div class="library-reading-room">
         <aside class="library-guide" aria-label="Penjaga perpustakaan"><div class="library-bubble"><strong>Selamat datang, pengembara!</strong><p>Sentuh buku pilihanmu.<br>Jom kenali maksud kiasannya.</p></div><img src="${imageRoot}owl-guide.png" alt="Burung hantu penjaga perpustakaan memakai topi ungu dan memegang buku" width="600" height="800"></aside>
         <section class="library-master" aria-labelledby="masterTitle"><span class="library-ribbon">KITAB ILMU UTAMA</span><h2 id="masterTitle">Apakah simpulan bahasa?</h2><p>Simpulan bahasa ialah gabungan perkataan yang membawa <strong>maksud khas</strong>.</p><p>Maksudnya tidak semestinya sama dengan maksud biasa perkataan itu.</p><div class="library-example">${icon('heart')}<p>Contohnya, <strong>ambil hati</strong> bermaksud <strong>menggembirakan seseorang</strong>.</p></div><button class="library-master-button" onclick="MagicLibrary.openMain()">${icon('book')} Buka Kitab Ilmu</button></section>
@@ -180,7 +180,7 @@ const MagicLibrary=(()=>{
     if(!dialog?.open)return;zoomed=!zoomed;root.querySelector('#libraryArtWindow').classList.toggle('is-zoomed',zoomed);
     root.querySelector('#libraryZoom').setAttribute('aria-pressed',String(zoomed));root.querySelector('#libraryZoom').textContent=zoomed?'Zum keluar −':'Zum ilustrasi +';
   }
-  async function playAudio(){
+  async function playAudio(){TeacherAudio.stop();if(TeacherAudio.isRecording())return;
     const id=current<0?'kitab-ilmu':ids[current];
     if(!dialog?.open||pref.silent||!available.has(id))return;
     if(audio&&!audio.paused){audio.pause();renderAudio('Rakaman dijeda.');return;}
@@ -222,5 +222,5 @@ const MagicLibrary=(()=>{
   function unmount(){
     ++epoch;clearMotion();sourceBook?.classList.remove('is-in-flight');sourceBook=null;motionPhase='idle';motionPreference=null;stopAudio();controller?.abort();if(dialog?.open)dialog.close();root=null;dialog=null;controller=null;opener=null;current=-1;
   }
-  return {html,mount,unmount,skipMotion,open,openMain,close,move,zoom,playAudio,preferencesChanged,audioFiles};
+  return {html,mount,unmount,skipMotion,open,openMain,close,move,zoom,playAudio,preferencesChanged,audioFiles,stopAudio};
 })();

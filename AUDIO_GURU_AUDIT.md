@@ -1,3 +1,5 @@
+> Rujukan sejarah sebelum import audio. Status dan skrip semasa: `docs/audio-guru/INTEGRASI_AUDIO_V9_1.md`; PDF akhir mengatasi teks lama yang bercanggah. Dokumen sejarah ini bukan inventori pemasangan terkini.
+
 # Audit audio sedia ada dan persediaan suara cikgu
 
 | Kawasan | Sumber semasa | Persediaan |

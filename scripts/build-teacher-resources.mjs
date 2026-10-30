@@ -14,5 +14,9 @@ for(const id of ids){const modern=`assets/audio/guru/perpustakaan/${id}.mp3`,leg
 await writeFile('dist/assets/audio/library-audio.json',JSON.stringify({available:Object.keys(sources),sources}));
 let video=false,captions=false;try{const f=await readFile('public/assets/video/guru/panduan-simpulloka.mp4');video=f.length>1000&&f.toString('ascii',4,8)==='ftyp';}catch{}
 try{captions=(await readFile('public/assets/video/guru/panduan-simpulloka.ms.vtt','utf8')).trimStart().startsWith('WEBVTT');}catch{}
+// Narration stays in a separate manifest, never TeacherAudioCatalog/app playback.
+const narrationNames=['babak-01-pengenalan','babak-02-peta-ilmu','babak-03-roda-ferris','babak-04-tiga-misi','babak-05-inklusif','babak-06-kenangan-pencapaian','babak-07-sudut-guru-pbd','babak-08-penutup'];
+const narration=[];for(const name of narrationNames){const path=`assets/audio/guru/video-panduan/${name}.mp3`;try{const data=await readFile('public/'+path);if(data.length>128&&(data.toString('ascii',0,3)==='ID3'||data[0]===255&&(data[1]&224)===224))narration.push(path);}catch{}}
+await mkdir('dist/assets/audio/guru/video-panduan',{recursive:true});await writeFile('dist/assets/audio/guru/video-panduan/manifest.json',JSON.stringify({videoOnly:true,available:narration}));
 await mkdir('dist/assets/video/guru',{recursive:true});await writeFile('dist/assets/video/guru/manifest.json',JSON.stringify({available:video,captions:video&&captions}));
 console.log('Teacher resources: 6 standalone printable HTML downloads;',available.length,'real MP3 files; video',video?'present':'pending');

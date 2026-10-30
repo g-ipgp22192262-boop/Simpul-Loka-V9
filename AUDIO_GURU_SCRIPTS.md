@@ -1,3 +1,5 @@
+> Rujukan sejarah sebelum import audio. Status dan skrip semasa: `docs/audio-guru/INTEGRASI_AUDIO_V9_1.md`; PDF akhir mengatasi teks lama yang bercanggah. Dokumen sejarah ini bukan inventori pemasangan terkini.
+
 # Skrip rakaman suara cikgu
 
 Tiada rakaman sebenar dimasukkan. Sumber utama apabila fail tersedia; tiada suara tiruan cikgu. Audio hanya atas interaksi. Semua skrip perlu dibaca seperti teks butang; pilihan/baki dinamik kekal sandaran pelayar berlabel. Fail MP3 sebenar dikesan sewaktu build.

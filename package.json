@@ -23,7 +23,8 @@
     "dev:pbd": "node scripts/pbd-dev-server.mjs",
     "test:pbd": "node tests/pbd-browser.mjs",
     "test:v91": "node tests/v91-browser.mjs",
-    "pbd:passcode": "node scripts/pbd-passcode.mjs"
+    "pbd:passcode": "node scripts/pbd-passcode.mjs",
+    "test:audio": "node tests/teacher-audio-browser.mjs"
   },
   "engines": {
     "node": ">=22"
