@@ -1,0 +1,462 @@
+{
+  "source": "User upload: Jelajahi SimpulLoka!.mp3",
+  "sha256": "c19ae0c9773d4a021ac6bd492dc6019298fd14c0b8848f12df089b72244d9cd6",
+  "encodedDurationSeconds": 169.992,
+  "decodedDurationSeconds": 169.96,
+  "method": "Local OpenAI Whisper base multilingual ONNX cross-attention, known supplied lyrics, official alignment heads, 50 Hz dynamic time warping; overlapping Malay ASR segment cross-check. No FFmpeg.",
+  "modelSource": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-base.tar.bz2",
+  "alignmentReference": "https://github.com/openai/whisper/blob/main/whisper/timing.py",
+  "limitations": "Machine-estimated sung line boundaries, not human listening or frame-perfect word-level synchronization. The first cue includes instrumental lead-in; final Yeayyy cue holds through the instrumental tail. Human listening remains the final quality check.",
+  "cues": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 3.96,
+      "text": "Hai, kawan-kawan!",
+      "acousticContextSeconds": [
+        0,
+        16
+      ]
+    },
+    {
+      "index": 1,
+      "start": 3.96,
+      "end": 6.94,
+      "text": "Selamat datang ke SimpulLoka!",
+      "acousticContextSeconds": [
+        0,
+        16
+      ]
+    },
+    {
+      "index": 2,
+      "start": 6.94,
+      "end": 11.52,
+      "text": "Enam permainan, enam simpulan bahasa!",
+      "acousticContextSeconds": [
+        0,
+        16
+      ]
+    },
+    {
+      "index": 3,
+      "start": 11.52,
+      "end": 15.12,
+      "text": "Ayuh, nyanyi bersama!",
+      "acousticContextSeconds": [
+        0,
+        16
+      ]
+    },
+    {
+      "index": 4,
+      "start": 15.12,
+      "end": 19.66,
+      "text": "Mari masuk taman ceria,",
+      "acousticContextSeconds": [
+        10,
+        31
+      ]
+    },
+    {
+      "index": 5,
+      "start": 19.66,
+      "end": 23.62,
+      "text": "SimpulLoka penuh warna,",
+      "acousticContextSeconds": [
+        10,
+        31
+      ]
+    },
+    {
+      "index": 6,
+      "start": 23.62,
+      "end": 27.36,
+      "text": "Belajar bahasa sambil bermain,",
+      "acousticContextSeconds": [
+        10,
+        31
+      ]
+    },
+    {
+      "index": 7,
+      "start": 27.36,
+      "end": 30.6,
+      "text": "Maksud tersirat kita fahamkan!",
+      "acousticContextSeconds": [
+        10,
+        31
+      ]
+    },
+    {
+      "index": 8,
+      "start": 30.6,
+      "end": 33.58,
+      "text": "Dalam tangan, pasti berjaya,",
+      "acousticContextSeconds": [
+        26,
+        46
+      ]
+    },
+    {
+      "index": 9,
+      "start": 33.58,
+      "end": 37.64,
+      "text": "Sesuatu sudah kita kuasai,",
+      "acousticContextSeconds": [
+        26,
+        46
+      ]
+    },
+    {
+      "index": 10,
+      "start": 37.64,
+      "end": 41.26,
+      "text": "Ambil hati, buat orang suka,",
+      "acousticContextSeconds": [
+        26,
+        46
+      ]
+    },
+    {
+      "index": 11,
+      "start": 41.26,
+      "end": 45.9,
+      "text": "Dengan kebaikan dan kata mesra!",
+      "acousticContextSeconds": [
+        26,
+        46
+      ]
+    },
+    {
+      "index": 12,
+      "start": 45.9,
+      "end": 48.42,
+      "text": "Simpul! Simpul! SimpulLoka!",
+      "acousticContextSeconds": [
+        40,
+        60
+      ]
+    },
+    {
+      "index": 13,
+      "start": 48.42,
+      "end": 52.44,
+      "text": "Belajar bahasa, hati gembira!",
+      "acousticContextSeconds": [
+        40,
+        60
+      ]
+    },
+    {
+      "index": 14,
+      "start": 52.44,
+      "end": 55.8,
+      "text": "Enam cop, enam gula kapas,",
+      "acousticContextSeconds": [
+        40,
+        60
+      ]
+    },
+    {
+      "index": 15,
+      "start": 55.8,
+      "end": 60.18,
+      "text": "Ilmu bermakna takkan terlepas!",
+      "acousticContextSeconds": [
+        40,
+        60
+      ]
+    },
+    {
+      "index": 16,
+      "start": 60.18,
+      "end": 62.92,
+      "text": "Simpul! Simpul! SimpulLoka!",
+      "acousticContextSeconds": [
+        55,
+        75
+      ]
+    },
+    {
+      "index": 17,
+      "start": 62.92,
+      "end": 66.46,
+      "text": "Ayuh sebut bersama-sama!",
+      "acousticContextSeconds": [
+        55,
+        75
+      ]
+    },
+    {
+      "index": 18,
+      "start": 66.46,
+      "end": 70.06,
+      "text": "Dengar, faham, cuba dan cerita,",
+      "acousticContextSeconds": [
+        55,
+        75
+      ]
+    },
+    {
+      "index": 19,
+      "start": 70.06,
+      "end": 74.26,
+      "text": "Simpulan bahasa hebat semuanya!",
+      "acousticContextSeconds": [
+        55,
+        75
+      ]
+    },
+    {
+      "index": 20,
+      "start": 74.26,
+      "end": 78.16,
+      "text": "Anak emas, paling disayang,",
+      "acousticContextSeconds": [
+        69,
+        90
+      ]
+    },
+    {
+      "index": 21,
+      "start": 78.16,
+      "end": 82.16,
+      "text": "Diberi perhatian, penuh kasih sayang,",
+      "acousticContextSeconds": [
+        69,
+        90
+      ]
+    },
+    {
+      "index": 22,
+      "start": 82.16,
+      "end": 85.36,
+      "text": "Air muka, wajah seseorang,",
+      "acousticContextSeconds": [
+        69,
+        90
+      ]
+    },
+    {
+      "index": 23,
+      "start": 85.36,
+      "end": 89.12,
+      "text": "Menunjukkan perasaan yang datang!",
+      "acousticContextSeconds": [
+        69,
+        90
+      ]
+    },
+    {
+      "index": 24,
+      "start": 89.12,
+      "end": 92.62,
+      "text": "Mandi peluh, berpeluh banyak,",
+      "acousticContextSeconds": [
+        84,
+        104
+      ]
+    },
+    {
+      "index": 25,
+      "start": 92.62,
+      "end": 96.2,
+      "text": "Bekerja kuat, tak mudah penat,",
+      "acousticContextSeconds": [
+        84,
+        104
+      ]
+    },
+    {
+      "index": 26,
+      "start": 96.2,
+      "end": 99.8,
+      "text": "Cakap besar, suka membangga,",
+      "acousticContextSeconds": [
+        84,
+        104
+      ]
+    },
+    {
+      "index": 27,
+      "start": 99.8,
+      "end": 104.16,
+      "text": "Jangan berlagak, rendahkan suara!",
+      "acousticContextSeconds": [
+        84,
+        104
+      ]
+    },
+    {
+      "index": 28,
+      "start": 104.16,
+      "end": 107.96,
+      "text": "Dalam tangan? — Sudah dikuasai!",
+      "acousticContextSeconds": [
+        98,
+        115
+      ]
+    },
+    {
+      "index": 29,
+      "start": 107.96,
+      "end": 111.56,
+      "text": "Ambil hati? — Buat orang sukai!",
+      "acousticContextSeconds": [
+        98,
+        115
+      ]
+    },
+    {
+      "index": 30,
+      "start": 111.56,
+      "end": 115.06,
+      "text": "Anak emas? — Yang paling disayang!",
+      "acousticContextSeconds": [
+        98,
+        115
+      ]
+    },
+    {
+      "index": 31,
+      "start": 115.06,
+      "end": 118.58,
+      "text": "Air muka? — Raut wajah seseorang!",
+      "acousticContextSeconds": [
+        110,
+        126
+      ]
+    },
+    {
+      "index": 32,
+      "start": 118.58,
+      "end": 122.22,
+      "text": "Mandi peluh? — Berpeluh banyak!",
+      "acousticContextSeconds": [
+        110,
+        126
+      ]
+    },
+    {
+      "index": 33,
+      "start": 122.22,
+      "end": 126.56,
+      "text": "Cakap besar? — Suka bercakap megah!",
+      "acousticContextSeconds": [
+        110,
+        126
+      ]
+    },
+    {
+      "index": 34,
+      "start": 126.56,
+      "end": 128.8,
+      "text": "Simpul! Simpul! SimpulLoka!",
+      "acousticContextSeconds": [
+        121,
+        141
+      ]
+    },
+    {
+      "index": 35,
+      "start": 128.8,
+      "end": 132.72,
+      "text": "Belajar bahasa, hati gembira!",
+      "acousticContextSeconds": [
+        121,
+        141
+      ]
+    },
+    {
+      "index": 36,
+      "start": 132.72,
+      "end": 135.88,
+      "text": "Enam cop, enam gula kapas,",
+      "acousticContextSeconds": [
+        121,
+        141
+      ]
+    },
+    {
+      "index": 37,
+      "start": 135.88,
+      "end": 140.64,
+      "text": "Misi selesai, kita pun puas!",
+      "acousticContextSeconds": [
+        121,
+        141
+      ]
+    },
+    {
+      "index": 38,
+      "start": 140.64,
+      "end": 142.86,
+      "text": "Simpul! Simpul! SimpulLoka!",
+      "acousticContextSeconds": [
+        134,
+        156
+      ]
+    },
+    {
+      "index": 39,
+      "start": 142.86,
+      "end": 146.38,
+      "text": "Ilmu baharu dibawa pulang!",
+      "acousticContextSeconds": [
+        134,
+        156
+      ]
+    },
+    {
+      "index": 40,
+      "start": 146.38,
+      "end": 151.48,
+      "text": "Terima kasih, jumpa lagi,",
+      "acousticContextSeconds": [
+        134,
+        156
+      ]
+    },
+    {
+      "index": 41,
+      "start": 151.48,
+      "end": 156.6,
+      "text": "SimpulLoka dalam hati!",
+      "acousticContextSeconds": [
+        134,
+        156
+      ]
+    },
+    {
+      "index": 42,
+      "start": 156.6,
+      "end": 160.22,
+      "text": "Tahniah, Penjelajah SimpulLoka!",
+      "acousticContextSeconds": [
+        150,
+        169.96
+      ]
+    },
+    {
+      "index": 43,
+      "start": 160.22,
+      "end": 162.4,
+      "text": "Kamu memang hebat!",
+      "acousticContextSeconds": [
+        150,
+        169.96
+      ]
+    },
+    {
+      "index": 44,
+      "start": 162.4,
+      "end": 169.992,
+      "text": "Yeayyy!",
+      "acousticContextSeconds": [
+        150,
+        169.96
+      ]
+    }
+  ]
+}

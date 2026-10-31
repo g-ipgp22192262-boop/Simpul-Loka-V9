@@ -1,0 +1,104 @@
+{
+  "nodeTests": {
+    "passed": 38,
+    "failed": 0
+  },
+  "syntax": "PASS",
+  "build": "PASS",
+  "realSong": {
+    "playbackAt1x": "PASS",
+    "cueTransitions": 45,
+    "nativeBackwardSeeks": 45,
+    "pageErrors": 0,
+    "acousticAlignment": "Known-text Whisper cross-attention DTW on the supplied MP3; machine-estimated line boundaries, not human-certified syllable timings."
+  },
+  "concertControlsFixture": "PASS",
+  "teacherResources": "PASS",
+  "packageBrowserCommands": [
+    {
+      "test": "audio",
+      "exitCode": 0
+    },
+    {
+      "test": "browser",
+      "exitCode": 0,
+      "initialExitCode": 1,
+      "rerun": "Passed separately after concert-title assertion update (browser) or avoiding concurrent port use (final)."
+    },
+    {
+      "test": "ferris",
+      "exitCode": 1,
+      "note": "Existing test compares the entire local database although boarding records PBD visits."
+    },
+    {
+      "test": "final",
+      "exitCode": 0,
+      "initialExitCode": 1,
+      "rerun": "Passed separately after concert-title assertion update (browser) or avoiding concurrent port use (final)."
+    },
+    {
+      "test": "finale",
+      "exitCode": 0
+    },
+    {
+      "test": "library",
+      "exitCode": 1,
+      "note": "Existing test waits for missing-audio UI although recordings are available."
+    },
+    {
+      "test": "loka1",
+      "exitCode": 1,
+      "note": "Existing summary selector matches both sentence help and story questions."
+    },
+    {
+      "test": "loka2",
+      "exitCode": 1,
+      "note": "Existing summary selector matches both sentence help and story questions."
+    },
+    {
+      "test": "loka3",
+      "exitCode": 1,
+      "note": "Existing summary selector matches both sentence help and story questions."
+    },
+    {
+      "test": "loka4",
+      "exitCode": 1,
+      "note": "Aliases the existing V9.1 Loka 4 completion wait; reproduced on baseline HEAD."
+    },
+    {
+      "test": "loka5",
+      "exitCode": 1,
+      "note": "Existing summary selector matches both sentence help and story questions."
+    },
+    {
+      "test": "loka6",
+      "exitCode": 0
+    },
+    {
+      "test": "pbd",
+      "exitCode": 1,
+      "note": "Existing simulated outage/session failure; reproduced on baseline assets."
+    },
+    {
+      "test": "reward",
+      "exitCode": 0
+    },
+    {
+      "test": "teacher",
+      "exitCode": 1,
+      "note": "Existing test expects 6 resources; application already has 8."
+    },
+    {
+      "test": "v91",
+      "exitCode": 1,
+      "note": "Existing Loka 4 completion wait; reproduced on baseline assets."
+    }
+  ],
+  "videoNarration": "NOT RUN: existing script invokes FFmpeg, explicitly prohibited by the user.",
+  "unchangedBackend": true,
+  "imbasAlias": {
+    "command": "npm run test:imbas",
+    "result": "FAIL: same existing V9.1 Loka 4 completion wait",
+    "aliasOf": "test:v91"
+  }
+}
