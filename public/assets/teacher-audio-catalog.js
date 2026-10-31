@@ -645,7 +645,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Dalam Tangan",
     "path": "assets/audio/guru/makna-dalam-tangan.mp3",
     "script": "Dalam Tangan. Sudah pasti diperoleh atau dikuasai.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -653,7 +653,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Dalam Tangan",
     "path": "assets/audio/guru/contoh-dalam-tangan.mp3",
     "script": "Hadiah pertandingan itu sudah dijanjikan kepada kumpulan Amir.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -661,7 +661,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Ambil Hati",
     "path": "assets/audio/guru/makna-ambil-hati.mp3",
     "script": "Ambil Hati. Menyenangkan atau menggembirakan hati seseorang.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -669,7 +669,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Ambil Hati",
     "path": "assets/audio/guru/contoh-ambil-hati.mp3",
     "script": "Aina melihat ibunya kelihatan penat.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -677,7 +677,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Anak Emas",
     "path": "assets/audio/guru/makna-anak-emas.mp3",
     "script": "Anak Emas. Orang yang paling disayangi atau diberi keutamaan.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -685,7 +685,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Anak Emas",
     "path": "assets/audio/guru/contoh-anak-emas.mp3",
     "script": "Jurulatih selalu memberikan perhatian istimewa kepada Faris.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -693,7 +693,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Air Muka",
     "path": "assets/audio/guru/makna-air-muka.mp3",
     "script": "Air Muka. Maruah atau harga diri seseorang yang perlu dijaga.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -701,7 +701,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Air Muka",
     "path": "assets/audio/guru/contoh-air-muka.mp3",
     "script": "Amir membaca buku di hadapan kelas.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -709,7 +709,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Mandi Peluh",
     "path": "assets/audio/guru/makna-mandi-peluh.mp3",
     "script": "Mandi Peluh. Berpeluh dengan banyak, lazimnya selepas melakukan kerja atau aktiviti yang menggunakan tenaga.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -717,7 +717,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Mandi Peluh",
     "path": "assets/audio/guru/contoh-mandi-peluh.mp3",
     "script": "Danish dan rakan-rakan bersedia untuk gotong-royong.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -725,7 +725,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Makna · Cakap Besar",
     "path": "assets/audio/guru/makna-cakap-besar.mp3",
     "script": "Cakap Besar. Suka bermegah-megah atau membanggakan diri, khususnya tentang kebolehan atau kelebihan sendiri.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -733,7 +733,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Contoh ayat · Cakap Besar",
     "path": "assets/audio/guru/contoh-cakap-besar.mp3",
     "script": "Hakim bermegah bahawa dia langsung tidak takut menaiki kapal lanun.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -741,7 +741,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Loka 4 · Cabaran Buaian",
     "path": "assets/audio/guru/loka4-buaian.mp3",
     "script": "Tekan Mula Buaian. Berhenti apabila kerusi berada dalam zon bintang. Berhenti Berpandu sentiasa tersedia.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -749,7 +749,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Loka 4 · Pulau 1",
     "path": "assets/audio/guru/loka4-pulau1.mp3",
     "script": "Bagaimanakah perasaan Amir apabila membaca di hadapan kelas?. Sedikit gementar dan mahu mencuba.. Dia mahu mengejek kawannya.. Dia tidak peduli tentang bacaan.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -757,7 +757,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Loka 4 · Pulau 2",
     "path": "assets/audio/guru/loka4-pulau2.mp3",
     "script": "Mengapakah Amir berasa malu?. Dia mendapat hadiah.. Dia tersalah membaca satu perkataan.. Sofia meminjam penselnya.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -765,7 +765,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Loka 4 · Pulau 3",
     "path": "assets/audio/guru/loka4-pulau3.mp3",
     "script": "Apakah tindakan Sofia yang menjaga air muka Amir?. Menceritakan kesilapan Amir kepada semua orang.. Menyuruh Amir berhenti membaca.. Membantu secara perlahan dengan kata-kata baik.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   },
   {
@@ -773,7 +773,7 @@ globalThis.TeacherAudioCatalog=Object.freeze([
     "label": "Loka 4 · Pulau 4",
     "path": "assets/audio/guru/loka4-pulau4.mp3",
     "script": "Ayat manakah menggunakan air muka dengan sesuai?. Sofia menjaga air muka Amir dengan membantunya secara sopan.. Amir menyimpan air muka di dalam botol.. Sofia membeli air muka di kedai.",
-    "status": "Legacy · bukan pelan rakaman V9.1 semasa",
+    "status": "Rakaman terdahulu · bukan pelan rakaman semasa",
     "legacy": true
   }
 ]);
