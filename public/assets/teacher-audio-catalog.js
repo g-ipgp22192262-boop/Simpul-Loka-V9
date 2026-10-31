@@ -1,6 +1,61 @@
 /* V9.1 recording scripts: primary reference SKRIP_AKHIR_UNTUK_RAKAMAN.pdf. Legacy entries are retained separately; video narration is never an app clip. */
 globalThis.TeacherAudioCatalog=Object.freeze([
   {
+    "id": "loka1-pengenalan",
+    "label": "Loka 1 / pengenalan",
+    "path": "assets/audio/guru/loka1-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 1. Kita akan belajar simpulan bahasa dalam tangan. Baling bola dan kumpulkan empat gambar kisah Amir. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  },
+  {
+    "id": "loka2-pengenalan",
+    "label": "Loka 2 / pengenalan",
+    "path": "assets/audio/guru/loka2-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 2. Kita akan belajar simpulan bahasa ambil hati. Pilih hadiah serta kata-kata sokongan untuk sahabat yang kehilangan kucing. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  },
+  {
+    "id": "loka3-pengenalan",
+    "label": "Loka 3 / pengenalan",
+    "path": "assets/audio/guru/loka3-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 3. Kita akan belajar simpulan bahasa anak emas. Panah sasaran dan kumpulkan empat gambar kisah Vanessa. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  },
+  {
+    "id": "loka4-pengenalan",
+    "label": "Loka 4 / pengenalan",
+    "path": "assets/audio/guru/loka4-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 4. Kita akan belajar simpulan bahasa air muka. Susun foto Amir dan Sofia serta bantu Amir menjaga air mukanya. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  },
+  {
+    "id": "loka5-pengenalan",
+    "label": "Loka 5 / pengenalan",
+    "path": "assets/audio/guru/loka5-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 5. Kita akan belajar simpulan bahasa mandi peluh. Bantu Danish mengutip daun dan menyusun pasu di taman sekolah. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  },
+  {
+    "id": "loka6-pengenalan",
+    "label": "Loka 6 / pengenalan",
+    "path": "assets/audio/guru/loka6-pengenalan.mp3",
+    "script": "Selamat datang ke Loka 6. Kita akan belajar simpulan bahasa cakap besar. Ikuti kisah Hakim dan Faris melalui empat stesen kapal lanun. Kemudian, susun empat gambar mengikut urutan dan ceritakan semula kisah di Pentas Cerita. Kamu boleh merakam cerita atau bercerita terus kepada cikgu. Minta bantuan apabila perlu.",
+    "optional": false,
+    "status": "Rakaman pengenalan sebenar Cikgu Danea tersedia · selepas klik sahaja",
+    "trigger": "Dengar Arahan Pengenalan"
+  }
+,
+  {
     "id": "kitab-ilmu",
     "label": "Perpustakaan / Kitab Ilmu Utama",
     "path": "assets/audio/guru/perpustakaan/kitab-ilmu.mp3",

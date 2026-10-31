@@ -15,7 +15,7 @@ const REFERENCE = [
  [1,'Dalam Tangan','Jatuhkan Botol','Sudah pasti diperoleh atau dikuasai'],
  [2,'Ambil Hati','Kedai Cenderamata','Menyenangkan atau menggembirakan hati seseorang'],
  [3,'Anak Emas','Memanah','Orang yang paling disayangi atau diberi keutamaan'],
- [4,'Air Muka','Buaian Diraja','Maruah atau harga diri seseorang yang perlu dijaga.'],
+ [4,'Air Muka','Studio Foto Air Muka','Maruah atau harga diri seseorang yang perlu dijaga.'],
  [5,'Mandi Peluh','Roller Coaster','Berpeluh dengan banyaknya'],
  [6,'Cakap Besar','Pirate Ship','Bercakap dengan sombong atau bermegah-megah']
 ];

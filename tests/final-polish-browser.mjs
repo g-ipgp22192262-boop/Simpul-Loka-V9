@@ -20,7 +20,7 @@ try{
   for(let i=0;i<6;i++){
    await p.locator(`[data-loka-link="${i}"]`).click();assert.equal(await p.locator('#lokaNav [aria-current="page"]').getAttribute('data-loka-link'),String(i));assert.equal(await p.locator('#nav button').count(),6);
    const intro=p.locator(`[data-loka-intro="${i+1}"]`);assert(await intro.isVisible());assert.match(await intro.textContent(),/Apa kita akan buat/);assert.match(await intro.textContent(),/Pentas Cerita/);assert((await intro.textContent()).toLowerCase().includes(ids[i].replaceAll('-',' ')));
-   if(i!==4){await intro.locator('button').click();await audible(`loka${i+1}-misi1`);}else assert.equal(await intro.locator('button').count(),0,'Loka 5 has question recordings, not an invented welcome recording');
+   assert.equal(await intro.locator('button').getAttribute('data-audio-clip'),`loka${i+1}-pengenalan`);await intro.locator('button').click();await audible(`loka${i+1}-pengenalan`);assert.match(await intro.locator('[data-intro-audio-status]').textContent(),/tersedia/);
    if(i>=2)await p.locator(`#l${i+1}Enter`).click();
    await p.locator(`[data-audio-clip="${ids[i]}"]`).click();await audible(ids[i]);
    assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`overflow ${width} L${i+1}`);

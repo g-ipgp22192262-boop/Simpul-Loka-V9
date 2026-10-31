@@ -2,7 +2,7 @@ import {createHash} from 'node:crypto';
 import {readFile,writeFile,mkdir,stat} from 'node:fs/promises';import vm from 'node:vm';
 const ctx=vm.createContext({});for(const f of ['sudut-guru-data.js','sudut-guru-content.js','teacher-audio-catalog.js'])vm.runInContext(await readFile('public/assets/'+f,'utf8'),ctx);
 await mkdir('dist/assets/downloads',{recursive:true});
-const C=ctx.SudutGuruContent,files={rph:'rph-60-minit',oral:'rubrik-lisan',written:'rubrik-bertulis',worksheet:'lembaran-kerja',cards:'kad-gambar-cerita',guide:'panduan-guru'};
+const C=ctx.SudutGuruContent,files={rph:'rph-60-minit',oral:'rubrik-lisan',written:'rubrik-bertulis',worksheet:'lembaran-kerja',cards:'kad-gambar-cerita',guide:'panduan-guru',recovery:'lembaran-pemulihan',reinforcement:'lembaran-pengukuhan'};
 for(const[id,name]of Object.entries(files)){
  let body=C.render(id);
  if(id==='cards'){const variables=[];for(const[i,path]of C.atlases.entries()){const type=path.endsWith('.png')?'image/png':'image/webp';const data=await readFile('public/assets/images/'+path);variables.push(`.sg-story-picture[data-atlas="${i}"]{background-image:url(data:${type};base64,${data.toString('base64')})}`);body=body.replaceAll(`background-image:url('assets/images/${path}');`,'');}body='<style>'+variables.join('')+'</style>'+body;}
@@ -21,4 +21,4 @@ const narration=[];for(const name of narrationNames){const path=`assets/audio/gu
 await mkdir('dist/assets/audio/guru/video-panduan',{recursive:true});await writeFile('dist/assets/audio/guru/video-panduan/manifest.json',JSON.stringify({videoOnly:true,available:narration}));
 let narrated=false;try{const m=JSON.parse(await readFile('public/assets/video/guru/narration.json','utf8'));narrated=video&&narration.length===8&&m.narrated===true&&m.chapters?.length===8&&m.video_sha256===createHash('sha256').update(await readFile('public/assets/video/guru/panduan-simpulloka.mp4')).digest('hex');}catch{}
 await mkdir('dist/assets/video/guru',{recursive:true});await writeFile('dist/assets/video/guru/manifest.json',JSON.stringify({available:video,captions:video&&captions,narrated}));
-console.log('Teacher resources: 6 standalone printable HTML downloads;',available.length,'real MP3 files; video',video?'present':'pending');
+console.log('Teacher resources: 8 standalone printable HTML downloads;',available.length,'real MP3 files; video',video?'present':'pending');

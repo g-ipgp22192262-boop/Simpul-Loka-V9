@@ -19,9 +19,9 @@ async function arrange(prefix){for(let i=0;i<4;i++){await p.locator(`[data-card=
 try{
  await p.goto(server.origin);await p.evaluate(()=>TeacherAudio.ready);
  const manifest=await p.evaluate(async()=>({app:await fetch('assets/audio/guru/manifest.json').then(r=>r.json()),video:await fetch('assets/audio/guru/video-panduan/manifest.json').then(r=>r.json())}));
- assert.equal(manifest.app.available.length,65);assert.equal(manifest.video.available.length,8);assert(manifest.video.videoOnly);assert(!manifest.app.available.some(x=>x.includes('video-panduan')));
+ assert.equal(manifest.app.available.length,71);assert.equal(manifest.video.available.length,8);assert(manifest.video.videoOnly);assert(!manifest.app.available.some(x=>x.includes('video-panduan')));
  const catalog=await p.evaluate(()=>TeacherAudioCatalog.filter(x=>!x.legacy));
- if(process.argv.includes('--ui-only')){results.playback=JSON.parse(await readFile('work/audio-integration/playback.json','utf8')).playback;assert.equal(results.playback.length,73);assert.deepEqual(results.playback.map(x=>x.path).sort(),[...manifest.app.available,...manifest.video.available].sort());}
+ if(process.argv.includes('--ui-only')){results.playback=JSON.parse(await readFile('work/audio-integration/playback.json','utf8')).playback;assert.equal(results.playback.length,79);assert.deepEqual(results.playback.map(x=>x.path).sort(),[...manifest.app.available,...manifest.video.available].sort());}
  for(const path of process.argv.includes('--ui-only')?[]:[...manifest.app.available,...manifest.video.available]){
   const entry=catalog.find(x=>x.path===path);
   const output=await p.evaluate(async({path,id})=>{
@@ -33,7 +33,7 @@ try{
   },{path,id:entry?.id});
   results.playback.push(output);await writeFile('work/audio-integration/playback.json',JSON.stringify(results,null,2));
  }
- console.log('PASS: all 73 real MP3s fully decoded and played to ended (accelerated); video excluded from app manifest.');
+ console.log('PASS: all 79 real MP3s fully decoded and played to ended (accelerated); video excluded from app manifest.');
  await direct('gerbang-selamat-datang');
  await p.locator('#nickname').fill('Audio Audit');await p.locator('#kelas').fill('3 Audit');await p.locator('#kelas').press('Enter');await p.locator('#libraryTitle').waitFor();
  await direct('perpustakaan-pengenalan');
@@ -43,6 +43,7 @@ try{
   await p.waitForFunction(()=>audioAuditMedia.at(-1)?.currentTime>0.02);results.mapping.push(['dalam-tangan','ambil-hati','anak-emas','air-muka','mandi-peluh','cakap-besar'][i]);await p.evaluate(()=>MagicLibrary.close());
  }
  await p.locator('.library-master-button').click();await p.locator('.library-audio-button').waitFor();await p.locator('.library-audio-button').click();await p.waitForFunction(()=>audioAuditMedia.at(-1)?.currentTime>0.02);assert(await p.evaluate(()=>audioAuditMedia.at(-1).src.endsWith('/assets/audio/guru/perpustakaan/kitab-ilmu.mp3')));results.mapping.push('kitab-ilmu');await p.evaluate(()=>{MagicLibrary.close();navTo('wheel');});await direct('ferris-arahan');
+ for(let n=1;n<=6;n++){await p.locator(`[data-loka-link="${n-1}"]`).click();await direct(`loka${n}-pengenalan`);}
  await p.evaluate(()=>{setPref('focus',true);setPref('reduce',true);enterLoka(0);});await mapped('One','loka1-misi1');
  await p.locator('[data-answer="0"]').click();await p.locator('#l1NextMission').click();await mapped('One','loka1-misi2');
  for(let i=0;i<4;i++){await p.evaluate(()=>LokaOne.assist());if(i<3)await p.waitForFunction(n=>document.querySelectorAll('.l1-collected-strip figure').length===n,i+1);else await p.locator('[data-card]').first().waitFor();}
@@ -90,5 +91,5 @@ try{
  await p.evaluate(()=>{TeacherAudio.play('loka1-misi1');navTo('wheel');});await p.waitForTimeout(150);assert(!await p.evaluate(()=>TeacherAudio.state().playing));
  await p.route('**/loka1-misi1.mp3',r=>r.abort());await p.evaluate(()=>TeacherAudio.play('loka1-misi1'));await p.waitForTimeout(150);assert(!await p.evaluate(()=>TeacherAudio.state().playing));await p.unroute('**/loka1-misi1.mp3');
  const missing=catalog.filter(x=>manifest.app.available.includes(x.path)&&!results.mapping.includes(x.id));assert.deepEqual(missing.map(x=>x.id),[],'Every app clip must have a tested UI route');assert.deepEqual(results.errors,[]);
- console.log('PASS: all 65 supplied app clips have verified UI mappings; 6 record/re-record/replay/oral flows; silent/navigation/pending/denied/error guards; 0 pageerrors.');
+ console.log('PASS: all 71 supplied app clips have verified UI mappings; 6 record/re-record/replay/oral flows; silent/navigation/pending/denied/error guards; 0 pageerrors.');
 }finally{await writeFile('work/audio-integration/playback.json',JSON.stringify(results,null,2));await browser.close();await server.close();}
